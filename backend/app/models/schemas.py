@@ -88,15 +88,15 @@ class AudienceAnalysis(BaseModel):
     sentiment_drivers: List[str]
     fatigue_or_backlash_risks: List[str]
     positioning_hook: str
-    word_of_mouth_dependence: Literal["Low (Star-driven Opening)", "Moderate", "Extreme (Sleeper/Story-driven)"]
+    word_of_mouth_dependence: str = Field(description="e.g. 'Low (Star-driven Opening)', 'Moderate to High (Word-of-Mouth Dependent)', 'Extreme'")
 
 # Strategy & Distribution Schema
 class ReleaseOption(BaseModel):
     rank: int
     proposed_date: str
-    slot_type: Literal["Solo National Holiday", "Long Extended Weekend", "Counter-Programming Window", "Sleeper Non-Holiday"]
+    slot_type: str = Field(description="e.g. 'Standard 3-Day Weekend (Sunday Peak Holiday Climax)', 'Contested Festive Corridor'")
     screen_count_est: str
-    competition_level: Literal["Clear Runway", "Manageable Counter-Release", "Direct Tentpole Clash"]
+    competition_level: str = Field(description="e.g. 'Contested Runway (Unannounced Future Slate)', 'Clear Runway', 'Direct Tentpole Clash'")
     pros: List[str]
     cons: List[str]
     strategic_rationale: str

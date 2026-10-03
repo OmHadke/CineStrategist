@@ -49,5 +49,49 @@ async def test_jawan_pipeline_execution():
     print(f"Credibility Score: {report.critic_audit.credibility_score}%")
     print(f"Execution Time: {report.metadata.get('execution_time_seconds')}s")
 
+@pytest.mark.asyncio
+async def test_project_agniveer_consistency_and_credibility():
+    agniveer_input = FilmInput(
+        title="Project Agniveer",
+        language="Hindi",
+        genres=["Action", "Thriller", "War"],
+        budget_tier="mega",
+        star_tier="tier_1",
+        director="Test Director A",
+        target_audience="Mass heartland single-screens, patriotic family audiences, urban multiplexes",
+        planned_window="Independence Day 2027",
+        logline="During a cross-border crisis, a special forces officer must lead a covert mission behind enemy lines with a team he doesn't trust. Part war film, part spy thriller, with large-scale action set pieces and an emotional core about duty versus family.",
+        platforms="theatrical",
+        pan_india=True
+    )
+
+    report: CineStrategistReport = await orchestrator.run_pipeline(agniveer_input, bypass_cache=True)
+
+    # 1. Year and Window checks
+    assert "2027" in report.calendar_analysis.clashes_and_events[0].date
+    assert "diwali" not in [c.event_name.lower() for c in report.calendar_analysis.clashes_and_events]
+    assert report.calendar_analysis.overall_risk_score >= 6
+
+    # 2. No contradiction between risk and competition
+    top_opt = report.release_strategy.ranked_release_options[0]
+    assert top_opt.competition_level != "Clear Runway"
+    assert "Sunday" in top_opt.slot_type or "Sunday" in report.calendar_analysis.clashes_and_events[0].description
+    assert "Long Extended Weekend" not in top_opt.slot_type
+
+    # 3. Numeric spread without doubled symbols
+    assert "₹₹" not in report.comps_analysis.performance_spread
+    assert "Cr to" in report.comps_analysis.performance_spread
+
+    # 4. Marketing reflects logline
+    slogan = report.marketing_playbook.campaign_slogan_or_theme.lower()
+    assert "enemy lines" in slogan or "duty" in slogan or "agniveer" in slogan
+
+    # 5. Critic credibility score is realistic
+    assert report.critic_audit.credibility_score < 95
+    assert report.critic_audit.verdict == "Approved with Inferences"
+
+    print("\n[TEST PASSED] Project Agniveer regression test passed with 0 contradictions!")
+
 if __name__ == "__main__":
     asyncio.run(test_jawan_pipeline_execution())
+    asyncio.run(test_project_agniveer_consistency_and_credibility())

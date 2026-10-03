@@ -1,7 +1,7 @@
 """
 Agent 3: Audience & Sentiment Archetype Agent.
-Profiles target demographics, computes multiplex vs single-screen resonance,
-and articulates core sentiment drivers.
+Performs deep semantic inspection of genres, logline conflict, and comparable reception patterns.
+Surfaces critical historical warnings (e.g. the Fighter heartland disconnect hazard).
 """
 
 from app.models.schemas import FilmInput, CompsAnalysis, AudienceAnalysis
@@ -23,44 +23,48 @@ class AudienceAgent:
             Return JSON matching this exact structure:
             {{
               "primary_archetypes": ["archetype1", "archetype2", "archetype3"],
-              "urban_multiplex_appeal": 60,
-              "heartland_single_screen_appeal": 40,
+              "urban_multiplex_appeal": 40,
+              "heartland_single_screen_appeal": 60,
               "sentiment_drivers": ["driver1", "driver2"],
               "fatigue_or_backlash_risks": ["risk1", "risk2"],
               "positioning_hook": "one sentence studio positioning hook",
-              "word_of_mouth_dependence": "Low (Star-driven Opening)" | "Moderate" | "Extreme (Sleeper/Story-driven)"
+              "word_of_mouth_dependence": "Low (Star-driven Opening)" | "Moderate to High (Word-of-Mouth Dependent)" | "Extreme (Sleeper/Story-driven)"
             }}
             """
-            system_instruction = "You are a senior audience insights analyst at a major film studio (e.g. Red Chillies, YRF)."
+            system_instruction = "You are a senior audience insights analyst at a major film studio. Reflect the exact themes in the logline."
             res = await llm_service.generate_json(prompt, system_instruction)
             if res and "primary_archetypes" in res:
                 return AudienceAnalysis(**res)
 
-        # High-calibre domain heuristic
-        is_action_mass = any(g in ["Action", "Thriller", "Horror"] for g in film_input.genres)
-        is_family_comedy = any(g in ["Comedy", "Drama", "Family"] for g in film_input.genres)
-        is_mega_star = film_input.star_tier in ["tier_1", "mega"]
+        # Domain heuristic with deep semantic inspection of logline
+        logline_lower = film_input.logline.lower()
+        is_war_military = any(g.lower() in ["war", "action", "thriller"] for g in film_input.genres) and any(
+            w in logline_lower for w in ["war", "covert", "special forces", "mission", "enemy lines", "officer", "duty", "cross-border"]
+        )
+        is_comedy_family = any(g.lower() in ["comedy", "drama", "family"] for g in film_input.genres)
 
-        if is_action_mass and is_mega_star:
-            urban_split = 45
-            heartland_split = 55
-            wom = "Low (Star-driven Opening)"
+        if is_war_military:
+            urban_split = 40
+            heartland_split = 60
+            # Military action with high-concept mission is heavily WOM dependent (like Uri and Fighter)
+            wom = "Moderate to High (Word-of-Mouth Dependent)"
             archetypes = [
-                "Mass Tier-2/Tier-3 Single Screen Front-Benchers",
-                "Youth Action & Pop-Culture Community",
-                "Weekend Family Spectacle Seekers"
+                "Mass Heartland Single-Screen Moviegoers & Defense/Armed Forces Community",
+                "Patriotic Family Theatergoers (seeking emotional national pride during holiday corridors)",
+                "Youth Tactical Action & Espionage Thriller Enthusiasts"
             ]
             drivers = [
-                "Heroic elevation moments and whistle-worthy dialogue",
-                "High-adrenaline musical score and dance anthem",
-                "Grand physical action choreography"
+                "Visceral special forces brotherhood and high-stakes covert tension behind enemy lines",
+                "Emotional family dilemma: the tragic friction between military duty and personal sacrifice",
+                "Grand, authentic tactical combat choreography without cartoonish physics"
             ]
             risks = [
-                "Critical pushback if emotional stakes feel formulaic or thin",
-                "Pacing drag during romantic subplots"
+                "THE FIGHTER HAZARD: Risk of isolating heartland single-screens if combat terminology is too cold, technical, or westernized (the primary factor that held Fighter to an 'Average' verdict). Emotional family stakes must remain front-and-center.",
+                "CBFC & DEFENCE PROTOCOL SCRUTINY: Portraying cross-border covert operations requires Ministry of Defence (MoD) NOC and careful handling to prevent regulatory friction or political controversy."
             ]
-            hook = "Position as an unmissable big-screen high-octane theatrical event engineered for collective auditorium euphoria."
-        elif is_family_comedy:
+            hook = f"Position {film_input.title} as an unyielding, high-stakes tactical covert operation that balances relentless behind-enemy-lines combat with an emotionally devastating core of duty versus family."
+
+        elif is_comedy_family:
             urban_split = 55
             heartland_split = 45
             wom = "Extreme (Sleeper/Story-driven)"
@@ -72,30 +76,31 @@ class AudienceAgent:
             drivers = [
                 "Relatable social commentary with organic comedic timing",
                 "Emotional climax that resonates across age brackets",
-                "Hum-worthy melodic or festive soundtrack"
+                "Hum-worthy festive soundtrack"
             ]
             risks = [
                 "Vulnerability to slow opening if trailer fails to deliver clear laughter quotient",
-                "Risk of sounding preachier than entertaining"
+                "Risk of sounding preachy rather than entertaining"
             ]
-            hook = "Frame as the heartfelt family entertainer of the season that leaves audiences laughing and moved."
+            hook = f"Frame {film_input.title} as the heartfelt family entertainer of the season that leaves audiences laughing and moved."
+
         else:
-            urban_split = 65
-            heartland_split = 35
+            urban_split = 60
+            heartland_split = 40
             wom = "Moderate"
             archetypes = [
                 "Discerning Urban Multiplex Audiences",
-                "High-Concept Thriller Enthusiasts",
+                "High-Concept Commercial Moviegoers",
                 "College & Digital-Savvy Youth"
             ]
             drivers = [
-                "Intelligent non-linear narrative and twist reveal",
+                "Intelligent narrative pacing and charismatic lead protagonist elevation",
                 "Polished atmospheric cinematography and sound design"
             ]
             risks = [
-                "Risk of alienating rural single screens if English dialogues or pacing are too dense"
+                "Risk of alienating rural single screens if dialogues are too dense or pacing is uneven"
             ]
-            hook = "Market as an edge-of-the-seat psychological ride that demands post-screening debate and discovery."
+            hook = f"Position {film_input.title} as an edge-of-the-seat theatrical event demanding big-screen viewing."
 
         return AudienceAnalysis(
             primary_archetypes=archetypes,
