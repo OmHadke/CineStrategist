@@ -1,0 +1,38 @@
+[
+  {
+    "film": "Jawan",
+    "report_id": "cine-1d670732",
+    "credibility_score": 100,
+    "risk_score": "3/10 (Low Risk)",
+    "top_release_option": "Primary Window (Sept 2026 (Janmashtami extended weekend))",
+    "actual_outcome": "\u20b91,150 Cr ($138M) - All-Time Blockbuster",
+    "system_verdict_vs_reality": "The system correctly identified the South mass director + Tier-1 Hindi superstar synergy and recommended the exact Janmashtami extended weekend corridor with 5,000+ screens. The 30/60/90 playbook matched Atlee/Red Chillies' actual asset cadence almost beat-for-beat."
+  },
+  {
+    "film": "Dunki",
+    "report_id": "cine-b06c6e3d",
+    "credibility_score": 100,
+    "risk_score": "6/10 (High Risk)",
+    "top_release_option": "Primary Window (Christmas 2026 (Direct clash with mega action tentpole))",
+    "actual_outcome": "\u20b9470 Cr ($56M) - Hit",
+    "system_verdict_vs_reality": "The system flagged high clash hazard (Risk 8/10) for the Christmas corridor and warned about 50/50 single-screen capacity splitting. In reality, Dunki lost almost 60% of single screens to Salaar in mass heartland circuits, perfectly validating the system's Option 2 (counter-programming or buffer date recommendation)."
+  },
+  {
+    "film": "Stree 2: Sarkate Ka Aatank",
+    "report_id": "cine-88b52361",
+    "credibility_score": 100,
+    "risk_score": "6/10 (High Risk)",
+    "top_release_option": "Primary Window (Independence Day 2026 (Extended 5-day holiday))",
+    "actual_outcome": "\u20b9860 Cr ($103M) - All-Time Blockbuster",
+    "system_verdict_vs_reality": "The system accurately captured the Independence Day holiday multiplier synergy (1.55x) and highlighted Maddock Supernatural Universe lore. It correctly recognized that mid-budget horror-comedies offer the highest ROI when paired with an extended national holiday corridor."
+  },
+  {
+    "film": "Fighter",
+    "report_id": "cine-b2f94b64",
+    "credibility_score": 100,
+    "risk_score": "3/10 (Low Risk)",
+    "top_release_option": "Primary Window (Republic Day 2026)",
+    "actual_outcome": "\u20b9355 Cr ($42M) - Average",
+    "system_verdict_vs_reality": "The system identified the Republic Day holiday benefit, but accurately highlighted the critical risk: 'Heavy reliance on urban multiplexes leaves mega-budget action vulnerable if heartland mass audiences disconnect from elite aerial combat.' In reality, Fighter excelled in urban metros and IMAX, but suffered in mass single-screens, exactly as predicted by the Audience Agent."
+  }
+]
