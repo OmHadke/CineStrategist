@@ -140,6 +140,9 @@ class CriticAudit(BaseModel):
     verdict: Literal["Approved - Studio Grade", "Approved with Inferences", "Needs Evidence Review"]
     total_claims_checked: int
     verified_claims_count: int
+    probable_inferences_count: int = 0
+    caution_unverified_count: int = 0
+    score_formula_breakdown: str = Field(description="Mathematical explanation of how credibility score is computed")
     audit_items: List[AuditItem]
     known_data_limitations: List[str]
     uncontrollable_risks: List[str]

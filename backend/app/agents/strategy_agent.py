@@ -6,6 +6,8 @@ Integrates calendar weekday realities (e.g. Sunday holidays) and genre-specific 
 
 from typing import List
 import re
+from datetime import date, timedelta
+import calendar
 from app.models.schemas import FilmInput, CompsAnalysis, CalendarAnalysis, AudienceAnalysis, ReleaseStrategy, ReleaseOption
 
 class StrategyAgent:
@@ -13,7 +15,7 @@ class StrategyAgent:
         self, 
         film_input: FilmInput, 
         comps: CompsAnalysis, 
-        calendar: CalendarAnalysis, 
+        calendar_analysis: CalendarAnalysis, 
         audience: AudienceAnalysis
     ) -> ReleaseStrategy:
         
@@ -26,7 +28,7 @@ class StrategyAgent:
             screen_est = "2,000 - 2,500 screens across India (targeted multiplex release with targeted single screens)"
 
         # Consistency Rule: Competition Level derived strictly from Calendar Risk Score
-        risk_score = calendar.overall_risk_score
+        risk_score = calendar_analysis.overall_risk_score
         if risk_score >= 8:
             comp_level = "Direct Tentpole Clash"
             slot_type = "High-Risk Festive Clash"
@@ -71,6 +73,23 @@ class StrategyAgent:
             pros_1 = [f"Capitalizes on proposed window ({window})", "Early advance sales runway"]
             cons_1 = ["Advertising inventory cost inflation during peak festive windows"]
 
+        # Option 2 Real Date Calculation: Friday ~3 weeks post-window
+        if is_independence:
+            d_base = date(year, 8, 15)
+            # Find the Friday ~3 weeks later
+            days_ahead = (4 - d_base.weekday()) % 7
+            if days_ahead <= 0:
+                days_ahead += 7
+            opt2_date_obj = d_base + timedelta(days=days_ahead + 14) # 3rd Friday post-holiday
+            opt2_day_name = calendar.day_name[opt2_date_obj.weekday()]
+            opt2_date_str = f"{opt2_day_name}, {opt2_date_obj.strftime('%B')} {opt2_date_obj.day}, {opt2_date_obj.year}"
+            opt2_slot_type = "Post-Festive Buffer Corridor"
+        else:
+            opt2_date_str = f"Post-Window Corridor (+3 Weeks Post-{window})"
+            opt2_slot_type = "Counter-Programming Window"
+
+        opt2_comp_level = "Unknown / Unconfirmed Runway (Future Slate Unannounced)" if year >= 2026 else "Historical Counter-Programming Slot"
+
         options: List[ReleaseOption] = [
             ReleaseOption(
                 rank=1,
@@ -87,10 +106,10 @@ class StrategyAgent:
             ),
             ReleaseOption(
                 rank=2,
-                proposed_date=f"Buffer Corridor (+3 Weeks Post-{window})",
-                slot_type="Counter-Programming Window",
+                proposed_date=opt2_date_str,
+                slot_type=opt2_slot_type,
                 screen_count_est=f"3,800 - 4,200 screens",
-                competition_level="Clear Runway",
+                competition_level=opt2_comp_level,
                 pros=[
                     "Completely avoids initial holiday tentpole collision noise and screen-sharing disputes",
                     "Lower exhibitor commission terms and cheaper broadcast marketing rates",
@@ -98,9 +117,12 @@ class StrategyAgent:
                 ],
                 cons=[
                     "Foregoes the initial Independence Day national holiday single-day surge",
-                    "Requires reliance on trailer-driven organic curiosity rather than festive holiday footfalls"
+                    f"Competitor slate for late Q3 {year} is unannounced, requiring ongoing exhibitor intelligence"
                 ],
-                strategic_rationale="Contingency escape window in the event that a competing studio locks in an aggressive day-and-date release."
+                strategic_rationale=(
+                    f"Contingency escape window scheduled for {opt2_date_str}. While future competitor slates "
+                    f"remain unannounced, historical scheduling patterns indicate lower tentpole collision risk following the mid-August rush."
+                )
             )
         ]
 
@@ -119,13 +141,15 @@ class StrategyAgent:
 
         ott_window = {
             "theatrical_holdback_weeks": 8,
-            "industry_norm_compliance": "Strict PVR-INOX & Multiplex Association of India (MAI) 8-Week Window Accord",
+            "industry_norm_compliance": "Typical ~8-Week Multiplex Theatrical Window Norm",
             "recommended_ott_partners": ["Netflix India", "Prime Video", "JioCinema"],
             "rationale": (
-                "National cinema chains strictly enforce an 8-week (56-day) holdback. Any theatrical release violating this norm "
-                "is barred from multiplex distribution. A disciplined holdback maximizes repeat visits and strengthens digital streaming valuation."
+                "Under prevailing Indian theatrical practice, major national multiplex chains (PVR-INOX, Cinepolis) "
+                "observe a typical ~8-week (56-day) theatrical exclusivity window before SVOD premiere. "
+                "Studio distributors should confirm specific contractual holdback terms directly with exhibitors during final booking agreements."
             )
         }
+
 
         pan_india_plan = (
             "Deploy multi-lingual day-and-date dubbed releases in Telugu and Tamil. For a military action thriller, "

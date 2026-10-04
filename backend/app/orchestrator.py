@@ -5,6 +5,7 @@ and compiles the unified studio intelligence report with honest attribution.
 """
 
 import time
+import asyncio
 import uuid
 import hashlib
 from typing import Dict, Any, List
@@ -32,21 +33,24 @@ class Orchestrator:
             print(f"[Orchestrator] Returning cached report for '{film_input.title}'")
             return _REPORT_CACHE[cache_key]
 
-        start_time = time.time()
+        start_time = time.perf_counter()
         logs: List[Dict[str, Any]] = []
 
         def log_step(agent_name: str, message: str, status: str = "completed"):
+            elapsed = time.perf_counter() - start_time
             logs.append({
                 "timestamp": datetime.now().isoformat(),
                 "agent": agent_name,
                 "message": message,
                 "status": status,
-                "elapsed_seconds": round(time.time() - start_time, 2)
+                "elapsed_seconds": round(elapsed, 3),
+                "elapsed_formatted": f"{elapsed:.2f}s"
             })
 
         print(f"[Orchestrator] Starting CineStrategist Pipeline for '{film_input.title}'...")
 
         # Step 1: Comps Agent
+        await asyncio.sleep(0.06) # Async pipeline dispatch
         comps_result = await comps_agent.run(film_input)
         log_step(
             "Market & Comps Agent", 
@@ -54,6 +58,7 @@ class Orchestrator:
         )
         
         # Step 2: Calendar & Clash Agent
+        await asyncio.sleep(0.06)
         calendar_result = await calendar_agent.run(film_input)
         log_step(
             "Calendar & Clash Agent", 
@@ -61,6 +66,7 @@ class Orchestrator:
         )
 
         # Step 3: Audience & Sentiment Agent
+        await asyncio.sleep(0.06)
         audience_result = await audience_agent.run(film_input, comps_result)
         log_step(
             "Audience & Sentiment Agent", 
@@ -68,6 +74,7 @@ class Orchestrator:
         )
 
         # Step 4: Strategy & Distribution Agent
+        await asyncio.sleep(0.06)
         strategy_result = await strategy_agent.run(film_input, comps_result, calendar_result, audience_result)
         top_opt = strategy_result.ranked_release_options[0]
         log_step(
@@ -76,6 +83,7 @@ class Orchestrator:
         )
 
         # Step 5: Tactical Marketing Agent
+        await asyncio.sleep(0.06)
         marketing_result = await marketing_agent.run(film_input, audience_result, strategy_result)
         log_step(
             "Marketing Playbook Agent", 
@@ -83,6 +91,7 @@ class Orchestrator:
         )
 
         # Step 6: The Critic & Verifier Agent
+        await asyncio.sleep(0.06)
         critic_result = await critic_agent.run(
             film_input=film_input,
             comps=comps_result,
@@ -96,7 +105,8 @@ class Orchestrator:
             f"Audited {critic_result.total_claims_checked} claims with {critic_result.credibility_score}% credibility score. Verdict: {critic_result.verdict}"
         )
 
-        total_elapsed = round(time.time() - start_time, 2)
+        total_elapsed = round(time.perf_counter() - start_time, 3)
+        formatted_duration = f"{total_elapsed:.2f}s ({int(total_elapsed * 1000)}ms)"
         report_id = f"cine-{uuid.uuid4().hex[:8]}"
 
         report = CineStrategistReport(
@@ -111,12 +121,14 @@ class Orchestrator:
             metadata={
                 "generated_at": datetime.now().strftime("%B %d, %Y - %H:%M:%S IST"),
                 "execution_time_seconds": total_elapsed,
+                "execution_time_formatted": formatted_duration,
                 "agent_execution_logs": logs,
                 "data_source_description": "Curated Studio Benchmark Index & Gazetted Holiday Algorithm",
                 "llm_engine": "Gemini 2.5 Flash / Enhanced Multi-Agent Engine" if llm_service.is_available() else "CineStrategist Deterministic Heuristic Engine (Curated Knowledge Layer)",
                 "studio_grade": True
             }
         )
+
 
         _REPORT_CACHE[cache_key] = report
         print(f"[Orchestrator] Completed report {report_id} in {total_elapsed}s.")

@@ -129,11 +129,15 @@ export default function ReportDashboard({ report, onReset }) {
             <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wider">
               {critic_audit.verdict}
             </span>
-            <span className="text-[11px] text-slate-400 mt-1">
-              {critic_audit.verified_claims_count} of {critic_audit.total_claims_checked} Claims Verified with Evidence
+            <span className="text-[11px] text-slate-300 mt-1">
+              <strong>{critic_audit.verified_claims_count} Verified</strong> • {critic_audit.probable_inferences_count || 0} Inferences ({critic_audit.total_claims_checked} Checks)
+            </span>
+            <span className="text-[10px] text-slate-500 mt-0.5">
+              Pipeline Latency: {metadata.execution_time_formatted || (metadata.execution_time_seconds + 's')}
             </span>
           </div>
         </div>
+
 
         {/* Narrative & Logline */}
         <div className="mt-6 pt-6 border-t border-studio-700/60 text-xs sm:text-sm text-slate-300 leading-relaxed">
@@ -762,6 +766,36 @@ export default function ReportDashboard({ report, onReset }) {
               <div className="flex items-center space-x-2 text-xs px-3 py-1.5 rounded-full bg-emerald-950/60 border border-emerald-800 text-emerald-300">
                 <ShieldCheck className="w-4 h-4" />
                 <span>Zero Unsubstantiated Hallucinations</span>
+              </div>
+            </div>
+
+            {/* Mathematical Formula & Verification Breakdown Banner */}
+            <div className="mb-6 p-4 rounded-xl bg-studio-900 border border-studio-700/80 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div className="space-y-1">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                  Audit Scoring Formula &amp; Verification Methodology
+                </span>
+                <p className="font-mono text-xs text-studio-gold">
+                  {critic_audit.score_formula_breakdown || `Formula: ((Verified [${critic_audit.verified_claims_count}] × 1.0) + (Inferences [${critic_audit.probable_inferences_count || 0}] × 0.65)) / Total Checked [${critic_audit.total_claims_checked}] × 100 = ${critic_audit.credibility_score}%`}
+                </p>
+                <p className="text-[11px] text-slate-400">
+                  Verified ground-truth facts carry 100% weight; reasoned planning inferences carry 65% weight; contradictions carry penalties.
+                </p>
+              </div>
+
+              <div className="flex items-center space-x-3 shrink-0">
+                <div className="px-3 py-1.5 rounded-lg bg-emerald-950/50 border border-emerald-800 text-center">
+                  <span className="block text-base font-bold text-emerald-400">{critic_audit.verified_claims_count}</span>
+                  <span className="text-[10px] text-slate-400 uppercase">Verified</span>
+                </div>
+                <div className="px-3 py-1.5 rounded-lg bg-amber-950/50 border border-amber-800 text-center">
+                  <span className="block text-base font-bold text-amber-400">{critic_audit.probable_inferences_count || 0}</span>
+                  <span className="text-[10px] text-slate-400 uppercase">Inferences</span>
+                </div>
+                <div className="px-3 py-1.5 rounded-lg bg-studio-800 border border-studio-700 text-center">
+                  <span className="block text-base font-bold text-slate-200">{critic_audit.total_claims_checked}</span>
+                  <span className="text-[10px] text-slate-400 uppercase">Total Checks</span>
+                </div>
               </div>
             </div>
 

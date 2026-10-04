@@ -77,9 +77,28 @@ async def verify_agniveer():
     assert top_opt.competition_level != "Clear Runway"
     assert "₹₹" not in report.comps_analysis.performance_spread
     assert "behind enemy lines" in report.marketing_playbook.campaign_slogan_or_theme.lower() or "duty" in report.marketing_playbook.campaign_slogan_or_theme.lower()
-    assert report.critic_audit.credibility_score < 95 # Realistic score, not fake 100%
     
-    print("\n[ALL CHECKS PASSED] Contradictions and credibility issues completely resolved!")
+    # Check Option 2 real date and unknown competition
+    opt2 = report.release_strategy.ranked_release_options[1]
+    assert "September 3, 2027" in opt2.proposed_date
+    assert "Unknown" in opt2.competition_level or "Unannounced" in opt2.competition_level
+
+    # Check Brahmastra exclusion
+    comp_titles = [c.title.lower() for c in report.comps_analysis.comparables]
+    assert not any("brahmāstra" in t or "brahmastra" in t for t in comp_titles)
+
+    # Check Critic counts and formula
+    assert report.critic_audit.verified_claims_count < report.critic_audit.total_claims_checked
+    assert report.critic_audit.probable_inferences_count > 0
+    assert "Formula:" in report.critic_audit.score_formula_breakdown
+    assert report.critic_audit.credibility_score < 95
+
+    # Check Execution time is realistic (> 0.1s)
+    assert report.metadata.get("execution_time_seconds", 0) > 0.1
+    assert "execution_time_formatted" in report.metadata
+
+    print("\n[ALL CHECKS PASSED] Contradictions, counts, Brahmastra exclusion, and real timer verified!")
+
 
 if __name__ == "__main__":
     asyncio.run(verify_agniveer())

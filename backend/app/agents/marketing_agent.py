@@ -42,7 +42,7 @@ class MarketingAgent:
                         "accompanied by intercepted radio comms and an intense metallic battle score. No plot spoilers; establish mission urgency."
                     ),
                     target_channels=["YouTube", "Instagram", "X / Twitter", "National Multiplex Pre-Rolls"],
-                    kpi_metric="30M+ organic digital impressions, #1 Trending topic across North/Central India"
+                    kpi_metric="Illustrative Target: ~25-30M organic digital impressions (heuristic pacing benchmark)"
                 ),
                 MarketingBeat(
                     phase="T-60 to T-30 (Hype)",
@@ -55,7 +55,7 @@ class MarketingAgent:
                         "Avoid forced glamorous party tracks; focus on brotherhood and national duty."
                     ),
                     target_channels=["Spotify India", "YouTube Music", "Radio Mirchi / Red FM", "Reels Tactical Trend Collabs"],
-                    kpi_metric="60M+ cross-platform views, anthem reaches Top 5 on Spotify India Viral 50"
+                    kpi_metric="Illustrative Target: ~50-60M cross-platform views; Top 10 Spotify India Viral entry (heuristic pacing)"
                 ),
                 MarketingBeat(
                     phase="T-30 to T-15 (Peak)",
@@ -67,7 +67,7 @@ class MarketingAgent:
                         "and the personal agony of soldiers. Launch nationwide co-branded initiative with Armed Forces veteran welfare foundations."
                     ),
                     target_channels=["National Television Prime Time", "Outdoor Metro Billboards", "Streaming Platforms"],
-                    kpi_metric="Widespread emotional resonance across families; 20% bump in female demographic ticketing intent"
+                    kpi_metric="Heuristic Estimate: ~15-20% projected lift in female/family ticketing intent (studio heuristic analog)"
                 ),
                 MarketingBeat(
                     phase="T-14 to T-7 (Trailer & Advance)",
@@ -79,7 +79,7 @@ class MarketingAgent:
                         "Unveil the 3-minute theatrical cut balancing tactical gunplay, covert betrayal tension, and national pride."
                     ),
                     target_channels=["5,000+ Theatrical DCP Screens", "YouTube Global Live Stream", "Front Page Print Coverage"],
-                    kpi_metric="100M+ views in 24 hours; universal positive trailer reception score > 90%"
+                    kpi_metric="Illustrative Debut Target: ~80-100M views in 24h; >85% positive reception index (heuristic target)"
                 ),
                 MarketingBeat(
                     phase="T-7 to Release (Blitz)",
@@ -91,7 +91,7 @@ class MarketingAgent:
                         "major military recruit belts (Chandigarh, Jaipur, Lucknow, Dehradun). Organize early-access tribute screenings for soldiers' families."
                     ),
                     target_channels=["BookMyShow / Paytm", "Mall Atriums", "Armed Forces Cantonment Screenings", "News Conclaves"],
-                    kpi_metric="₹20Cr+ pre-sales advance before Friday morning opening shows"
+                    kpi_metric="Heuristic Benchmark: ~₹15-20Cr pre-sales target before opening day (indicative pacing benchmark)"
                 ),
                 MarketingBeat(
                     phase="Post-Release (Sustain)",
@@ -103,9 +103,10 @@ class MarketingAgent:
                         "Deploy digital clips celebrating real-life martyrs and operatives to turn holiday momentum into sustained 3-week legs."
                     ),
                     target_channels=["YouTube Shorts", "Instagram", "Broadcast News Features"],
-                    kpi_metric="Maintain under 30% drop-off on post-holiday Monday across all major single-screen territories"
+                    kpi_metric="Heuristic Benchmark: Maintain sub-35% Monday drop-off across major circuits (indicative benchmark)"
                 )
             ]
+
 
             music_strategy = (
                 "For a serious tactical war thriller, conventional romantic duets or club party songs break narrative tension and alienate audiences. "

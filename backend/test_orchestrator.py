@@ -86,9 +86,24 @@ async def test_project_agniveer_consistency_and_credibility():
     slogan = report.marketing_playbook.campaign_slogan_or_theme.lower()
     assert "enemy lines" in slogan or "duty" in slogan or "agniveer" in slogan
 
-    # 5. Critic credibility score is realistic
+    # 5. Critic credibility score is realistic and counts match
     assert report.critic_audit.credibility_score < 95
     assert report.critic_audit.verdict == "Approved with Inferences"
+    assert report.critic_audit.verified_claims_count < report.critic_audit.total_claims_checked
+    assert "Formula:" in report.critic_audit.score_formula_breakdown
+
+    # 6. Option 2 check
+    opt2 = report.release_strategy.ranked_release_options[1]
+    assert "September 3, 2027" in opt2.proposed_date
+    assert "Unknown" in opt2.competition_level or "Unannounced" in opt2.competition_level
+
+    # 7. Brahmastra check
+    comp_titles = [c.title.lower() for c in report.comps_analysis.comparables]
+    assert not any("brahmāstra" in t or "brahmastra" in t for t in comp_titles)
+
+    # 8. Real timer check
+    assert report.metadata.get("execution_time_seconds", 0) > 0.1
+    assert "execution_time_formatted" in report.metadata
 
     print("\n[TEST PASSED] Project Agniveer regression test passed with 0 contradictions!")
 

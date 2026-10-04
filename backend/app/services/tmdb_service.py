@@ -48,6 +48,11 @@ class TMDBService:
             # 1. Jaccard Genre Similarity (Weight: 0.35)
             intersection = user_genres_set.intersection(film_genres_set)
             union = user_genres_set.union(film_genres_set)
+            
+            # Strict Genre Relevancy: If user enters 2+ genres, reject titles sharing only 1 genre (e.g. Brahmastra in Action/War)
+            if len(user_genres_set) >= 2 and len(intersection) < 2:
+                continue
+
             jaccard_genre = len(intersection) / len(union) if union else 0.0
             genre_score = jaccard_genre * 0.35
 

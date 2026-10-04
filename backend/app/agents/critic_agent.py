@@ -138,13 +138,12 @@ class CriticAgent:
         # --- 5. Audit Historical Comps Data Source (Honest Attribution) ---
         top_comp = comps.comparables[0]
         audit_items.append(AuditItem(
-            claim=f"Top comparable '{top_comp.title}' ({top_comp.year}) historical gross: {top_comp.box_office_est} on budget {top_comp.budget_est}.",
+            claim=f"Top comparable '{top_comp.title}' ({top_comp.year}) gross: {top_comp.box_office_est} on budget {top_comp.budget_est}.",
             claim_type="historical_comp",
             source_reference="Curated Studio Benchmark Database (Not live-certified via external API)",
             status="PROBABLE_INFERENCE",
             critic_notes="Data represents industry trade consensus in curated local database. Unorganized single-screen territories contain ±5-8% reporting variance."
         ))
-        verified_count += 1
 
         # --- 6. Audit Future Slate Status ---
         if target_year >= 2026:
@@ -159,13 +158,31 @@ class CriticAgent:
                     f"not a confirmed day-and-date competitor filing."
                 )
             ))
-            verified_count += 1
 
+        # --- 7. Audit Unsourced Figures & Planning Heuristics ---
+        audit_items.append(AuditItem(
+            claim="Marketing debut targets (e.g. ~80-100M views) and calendar multipliers (1.35x / 0.75x).",
+            claim_type="strategic_inference",
+            source_reference="Studio Planning Heuristics (Not empirical certainties)",
+            status="PROBABLE_INFERENCE",
+            critic_notes="Auditor Flag: Multipliers and digital reach targets are illustrative studio planning estimates and heuristic pacing benchmarks, not certified contractual guarantees."
+        ))
+
+        # Strict Mathematical Counting: Count only strictly VERIFIED claims
+        verified_count = sum(1 for item in audit_items if item.status == "VERIFIED")
+        inferences_count = sum(1 for item in audit_items if item.status == "PROBABLE_INFERENCE")
+        caution_count = sum(1 for item in audit_items if item.status == "CAUTION_UNVERIFIED")
         total_checked = len(audit_items)
-        # Realistic credibility score: typically 83-88% when dealing with future unannounced slates
-        credibility_score = int((verified_count / total_checked) * 100) if total_checked > 0 else 85
-        if target_year >= 2026:
-            credibility_score = min(88, credibility_score) # Cap at 88% for unannounced future windows
+
+        # Transparent Scoring Formula:
+        # Verified items get 1.0 weight; Inferences get 0.65 weight; Cautions penalized 0.50
+        weighted_points = (verified_count * 1.0) + (inferences_count * 0.65) - (caution_count * 0.50)
+        credibility_score = int(round((weighted_points / total_checked) * 100)) if total_checked > 0 else 85
+        
+        formula_breakdown = (
+            f"Formula: ((Verified [{verified_count}] × 1.0) + (Inferences [{inferences_count}] × 0.65) "
+            f"- (Cautions [{caution_count}] × 0.50)) / Total Checked [{total_checked}] × 100 = {credibility_score}%"
+        )
 
         verdict = "Approved with Inferences" if credibility_score < 95 else "Approved - Studio Grade"
 
@@ -186,9 +203,13 @@ class CriticAgent:
             verdict=verdict,
             total_claims_checked=total_checked,
             verified_claims_count=verified_count,
+            probable_inferences_count=inferences_count,
+            caution_unverified_count=caution_count,
+            score_formula_breakdown=formula_breakdown,
             audit_items=audit_items,
             known_data_limitations=limitations,
             uncontrollable_risks=uncontrollable_risks
         )
+
 
 critic_agent = CriticAgent()
