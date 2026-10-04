@@ -20,7 +20,8 @@ class MarketingAgent:
         is_war_military = any(g.lower() in ["war", "action", "thriller"] for g in film_input.genres) and any(
             w in logline_lower for w in ["war", "covert", "special forces", "mission", "enemy lines", "officer", "duty", "cross-border"]
         )
-        is_comedy_family = any(g.lower() in ["comedy", "drama", "family"] for g in film_input.genres)
+        is_romance_drama = any(g.lower() in ["romance", "romantic", "love", "musical"] for g in film_input.genres)
+        is_comedy_family = any(g.lower() in ["comedy", "family"] for g in film_input.genres)
 
         if is_war_military:
             # Dedicated campaign slogan tailored to covert warfare and duty vs family
@@ -107,7 +108,6 @@ class MarketingAgent:
                 )
             ]
 
-
             music_strategy = (
                 "For a serious tactical war thriller, conventional romantic duets or club party songs break narrative tension and alienate audiences. "
                 "The album must follow a disciplined 2-pillar architecture: (1) A thumping, adrenalized patriotic/brotherhood anthem at T-45 for pre-workout "
@@ -124,6 +124,103 @@ class MarketingAgent:
             single_vs_multi = (
                 "Heartland single-screen circuits (Punjab, Haryana, Rajasthan, UP) receive high-impact painted cutouts, local radio battle cries, "
                 "and auto-rickshaw speaker promotions. Metro multiplexes receive immersive 3D tactical command center photo installations and Dolby Atmos sound previews."
+            )
+
+        elif is_romance_drama:
+            campaign_slogan = f"Every Heart Has A City To Return To: {title}"
+            narrative_hooks = [
+                "Intoxicating lead chemistry and soulful, era-defining music soundtrack",
+                "Relatable modern romantic conflicts: devotion, ambition, and heartbreak",
+                "Grand, picturesque visual storytelling engineered for big-screen romantic escapism"
+            ]
+            beats: List[MarketingBeat] = [
+                MarketingBeat(
+                    phase="T-90 to T-60 (Tease)",
+                    day_offset="T-75 Days",
+                    asset_type="Acoustic First Look Motion Poster",
+                    title=f"{title}: Character Teaser & Acoustic Theme Motif",
+                    description=(
+                        "Release an intimate first-look motion poster showcasing the lead pair in a scenic urban or rustic twilight setting, "
+                        "accompanied by a 30-second acoustic melody snippet. No dialogue; ignite musical curiosity."
+                    ),
+                    target_channels=["YouTube Shorts", "Instagram Reels", "Spotify Artist Page"],
+                    kpi_metric="Illustrative Target: ~20-25M organic digital views; strong audio bookmark rate"
+                ),
+                MarketingBeat(
+                    phase="T-60 to T-30 (Hype)",
+                    day_offset="T-45 Days",
+                    asset_type="Song 1 (Lead Romantic Duet) + Video Launch",
+                    title="Lead Love Anthem Drop & Reels Hookstep Trend",
+                    description=(
+                        "Drop Song 1: the album's crown jewel romantic duet (spearheaded by marquee playback singers e.g. Arijit Singh / Shreya Ghoshal). "
+                        "Execute simultaneous campus and radio blitz; partner with top 50 Instagram creators for couple reels."
+                    ),
+                    target_channels=["Spotify India Top 50", "YouTube Worldwide", "Radio Mirchi / Red FM", "Reels"],
+                    kpi_metric="Illustrative Target: ~60M+ cross-platform views; Top 5 Spotify India Viral entry"
+                ),
+                MarketingBeat(
+                    phase="T-30 to T-15 (Peak)",
+                    day_offset="T-25 Days",
+                    asset_type="Song 2 (Heartbreak / Passion Ballad) & College Campus Tour",
+                    title="Soulful Passion Track & Multi-City College Roadshow",
+                    description=(
+                        "Release the intense heartbreak/conflict track. Cast embarks on high-visibility college festivals and mall appearances "
+                        "across Delhi, Mumbai, Pune, Bangalore, and Chandigarh for acoustic sing-alongs."
+                    ),
+                    target_channels=["University Fests", "Streaming Platforms", "Prime-Time Broadcast Collabs"],
+                    kpi_metric="Heuristic Estimate: ~25% projected increase in youth advance booking intention"
+                ),
+                MarketingBeat(
+                    phase="T-14 to T-7 (Trailer & Advance)",
+                    day_offset="T-12 Days",
+                    asset_type="Official Theatrical Trailer",
+                    title="Emotional Theatrical Trailer Launch Event",
+                    description=(
+                        "Unveil the 3-minute official theatrical cut focusing on the emotional turning point and high-stakes romantic conflict. "
+                        "Pair trailer release with the complete album jukebox on digital audio streaming."
+                    ),
+                    target_channels=["DCP Multiplex Screens", "YouTube Global Live Stream", "Lifestyle & Fashion Digital Outlets"],
+                    kpi_metric="Illustrative Target: ~70-80M views in 24h; >90% positive audience sentiment score"
+                ),
+                MarketingBeat(
+                    phase="T-7 to Release (Blitz)",
+                    day_offset="T-5 Days",
+                    asset_type="Advance Booking Blitz + Date-Night Combos",
+                    title="Advance Ticketing Open + Couple & Student Promotional Packages",
+                    description=(
+                        "Open nationwide advance ticketing on BookMyShow and Paytm Insider with exclusive couple-seat packages "
+                        "and collegiate promotional discounts. Host exclusive midnight fan club musical premiere screenings."
+                    ),
+                    target_channels=["BookMyShow / Paytm", "Lifestyle Apps", "FM Radio Takeover"],
+                    kpi_metric="Heuristic Benchmark: ~₹8-12 Cr advance ticketing pre-sales prior to Day-1"
+                ),
+                MarketingBeat(
+                    phase="Post-Release (Sustain)",
+                    day_offset="Release + 3 Days",
+                    asset_type="Emotional Audience Climax Reaction Cut",
+                    title="Audience Tears & Standing Ovation Reaction Promo",
+                    description=(
+                        "Capture raw emotional audience reactions, tears, and spontaneous applause from packed multiplexes. "
+                        "Release the unplugged reprise version of the lead ballad to sustain second-week momentum."
+                    ),
+                    target_channels=["Instagram Reels", "YouTube Shorts", "Music Streaming Platforms"],
+                    kpi_metric="Heuristic Benchmark: Maintain sub-25% Monday drop-off in urban multiplex circuits"
+                )
+            ]
+            music_strategy = (
+                "For a modern romantic drama, the music album is the primary commercial driver. The release must follow a strict "
+                "3-stage strategy: (1) Intoxicating love anthem at T-45 to capture mainstream radio and reels, (2) Deeply moving heartbreak ballad at T-25, "
+                "and (3) Full soundtrack jukebox alongside theatrical trailer at T-12 to maximize streaming royalty saturation before opening day."
+            )
+            brand_tie_ins = [
+                "Coffee Chain & QSR Partner (signature couple drinks and thematic cup sleeves)",
+                "Youth Fashion & Apparel Brand (protagonist wardrobe collection)",
+                "Audio Streaming Platform Exclusive (immersive artist commentary playlist)",
+                "Dating / Social Discovery App (Valentine's or seasonal 'First Date at Movies' ticket bundles)"
+            ]
+            single_vs_multi = (
+                "Urban multiplexes receive aesthetic romantic photo-booths and Dolby Atmos acoustic listening lounges. "
+                "Heartland single screens receive massive cutout banners highlighting the film's larger-than-life emotional stakes and musical soul."
             )
 
         elif is_comedy_family:

@@ -35,24 +35,21 @@ class TMDBService:
         - Budget tier compatibility (mega vs high vs mid)
         - Star power pull alignment
         - Thematic keyword resonance from logline
+        Employs progressive fallback (strict 2+ genre match -> 1-genre match -> scale fallback)
+        to ensure robust decision support without 0-comp crashes.
         """
         user_genres_set = set(g.strip().lower() for g in genres)
-        
-        # Extract keywords from logline
         logline_tokens = set(re.findall(r'\b[a-zA-Z]{3,}\b', logline.lower())) if logline else set()
-        
-        candidates = []
-        for film in BENCHMARK_FILMS:
+
+        def score_film(film: Dict[str, Any], min_genre_match: int) -> Optional[Dict[str, Any]]:
             film_genres_set = set(g.strip().lower() for g in film["genres"])
-            
-            # 1. Jaccard Genre Similarity (Weight: 0.35)
             intersection = user_genres_set.intersection(film_genres_set)
             union = user_genres_set.union(film_genres_set)
-            
-            # Strict Genre Relevancy: If user enters 2+ genres, reject titles sharing only 1 genre (e.g. Brahmastra in Action/War)
-            if len(user_genres_set) >= 2 and len(intersection) < 2:
-                continue
 
+            if len(intersection) < min_genre_match:
+                return None
+
+            # 1. Jaccard Genre Similarity (Weight: 0.35)
             jaccard_genre = len(intersection) / len(union) if union else 0.0
             genre_score = jaccard_genre * 0.35
 
@@ -65,7 +62,7 @@ class TMDBService:
             elif (budget_tier == "high" and f_budget == "mid") or (budget_tier == "mid" and f_budget == "high"):
                 budget_score = 0.10
             else:
-                budget_score = 0.0 # Heavy penalty for scale mismatch (e.g. mega vs low)
+                budget_score = 0.0
 
             # 3. Star Power Compatibility (Weight: 0.20)
             f_star = film.get("star_tier", "tier_2")
@@ -87,6 +84,8 @@ class TMDBService:
             reasons = []
             if intersection:
                 reasons.append(f"Matching genres: {', '.join(g.capitalize() for g in intersection)}")
+            elif min_genre_match == 0:
+                reasons.append("Scale-based benchmark fallback (No direct genre match)")
             if f_budget == budget_tier:
                 reasons.append(f"Matching budget scale ({budget_tier.capitalize()})")
             if theme_matches:
@@ -94,11 +93,46 @@ class TMDBService:
             if film.get("language", "").lower() == language.lower():
                 reasons.append(f"Same primary market ({language})")
 
-            candidates.append({
+            return {
                 **film,
                 "similarity_score": normalized_score,
                 "similarity_factors": reasons
-            })
+            }
+
+        # Pass 1: Strict Match (>= 2 genres if user selected >= 2 genres, else >= 1)
+        required_matches = 2 if len(user_genres_set) >= 2 else 1
+        candidates = []
+        seen_ids = set()
+
+        for film in BENCHMARK_FILMS:
+            res = score_film(film, min_genre_match=required_matches)
+            if res:
+                candidates.append(res)
+                seen_ids.add(film["id"])
+
+        # Pass 2: Relaxed Match (>= 1 genre match) if fewer than 3 candidates
+        if len(candidates) < 3 and required_matches > 1:
+            for film in BENCHMARK_FILMS:
+                if film["id"] in seen_ids:
+                    continue
+                res = score_film(film, min_genre_match=1)
+                if res:
+                    res["similarity_score"] = round(res["similarity_score"] * 0.85, 2)
+                    candidates.append(res)
+                    seen_ids.add(film["id"])
+
+        # Pass 3: Scale Fallback if still fewer than 2 candidates
+        if len(candidates) < 2:
+            for film in BENCHMARK_FILMS:
+                if film["id"] in seen_ids:
+                    continue
+                res = score_film(film, min_genre_match=0)
+                if res:
+                    res["similarity_score"] = min(0.40, round(res["similarity_score"] * 0.60, 2))
+                    candidates.append(res)
+                    seen_ids.add(film["id"])
+                    if len(candidates) >= 4:
+                        break
 
         # Sort by similarity score descending
         candidates.sort(key=lambda x: x["similarity_score"], reverse=True)

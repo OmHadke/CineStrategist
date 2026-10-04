@@ -109,7 +109,14 @@ export default function App() {
       });
 
       if (!res.ok) {
-        throw new Error(`Analysis failed with status code ${res.status}`);
+        let errorDetail = `Analysis failed with status code ${res.status}`;
+        try {
+          const errJson = await res.json();
+          if (errJson && errJson.detail) {
+            errorDetail = errJson.detail;
+          }
+        } catch (_) {}
+        throw new Error(errorDetail);
       }
 
       const reportData = await res.json();

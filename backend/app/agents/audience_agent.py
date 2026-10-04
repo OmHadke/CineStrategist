@@ -41,7 +41,8 @@ class AudienceAgent:
         is_war_military = any(g.lower() in ["war", "action", "thriller"] for g in film_input.genres) and any(
             w in logline_lower for w in ["war", "covert", "special forces", "mission", "enemy lines", "officer", "duty", "cross-border"]
         )
-        is_comedy_family = any(g.lower() in ["comedy", "drama", "family"] for g in film_input.genres)
+        is_romance_drama = any(g.lower() in ["romance", "romantic", "love", "musical"] for g in film_input.genres)
+        is_comedy_family = any(g.lower() in ["comedy", "family"] for g in film_input.genres)
 
         if is_war_military:
             urban_split = 40
@@ -63,6 +64,26 @@ class AudienceAgent:
                 "CBFC & DEFENCE PROTOCOL SCRUTINY: Portraying cross-border covert operations requires Ministry of Defence (MoD) NOC and careful handling to prevent regulatory friction or political controversy."
             ]
             hook = f"Position {film_input.title} as an unyielding, high-stakes tactical covert operation that balances relentless behind-enemy-lines combat with an emotionally devastating core of duty versus family."
+
+        elif is_romance_drama:
+            urban_split = 55
+            heartland_split = 45
+            wom = "High (Music & Emotional Word-of-Mouth Dependent)"
+            archetypes = [
+                "Youth & College Demographic (driving repeat viewings & streaming audio saturation)",
+                "Metro & Urban Multiplex Couples & Contemporary Romance Seekers",
+                "Female Decision-Makers & Multi-generational Family Audiences"
+            ]
+            drivers = [
+                "Soulful, chart-topping musical album that dominates Spotify India and social reels",
+                "Magnetic screen chemistry and emotionally raw confrontation between the leads",
+                "Universal romantic stakes: personal sacrifice, modern relationship dilemmas, or heartbreak"
+            ]
+            risks = [
+                "THE MUSIC DEPENDENCY HAZARD: Romantic dramas cannot open on star power alone if the music album fails to achieve viral breakout status (T-30 days prior).",
+                "Risk of isolating single screens if dialogues are overly stylized or urban-centric without heartland emotional grounding."
+            ]
+            hook = f"Position {film_input.title} as the definitive modern love story of the season, propelled by an unforgettable musical soundtrack and poignant emotional stakes."
 
         elif is_comedy_family:
             urban_split = 55

@@ -136,14 +136,23 @@ class CriticAgent:
                 ))
 
         # --- 5. Audit Historical Comps Data Source (Honest Attribution) ---
-        top_comp = comps.comparables[0]
-        audit_items.append(AuditItem(
-            claim=f"Top comparable '{top_comp.title}' ({top_comp.year}) gross: {top_comp.box_office_est} on budget {top_comp.budget_est}.",
-            claim_type="historical_comp",
-            source_reference="Curated Studio Benchmark Database (Not live-certified via external API)",
-            status="PROBABLE_INFERENCE",
-            critic_notes="Data represents industry trade consensus in curated local database. Unorganized single-screen territories contain ±5-8% reporting variance."
-        ))
+        if comps.comparables:
+            top_comp = comps.comparables[0]
+            audit_items.append(AuditItem(
+                claim=f"Top comparable '{top_comp.title}' ({top_comp.year}) gross: {top_comp.box_office_est} on budget {top_comp.budget_est}.",
+                claim_type="historical_comp",
+                source_reference="Curated Studio Benchmark Database (Not live-certified via external API)",
+                status="PROBABLE_INFERENCE",
+                critic_notes="Data represents industry trade consensus in curated local database. Unorganized single-screen territories contain ±5-8% reporting variance."
+            ))
+        else:
+            audit_items.append(AuditItem(
+                claim="Historical comps benchmark dataset availability.",
+                claim_type="historical_comp",
+                source_reference="Curated Studio Benchmark Database",
+                status="CAUTION_UNVERIFIED",
+                critic_notes="No direct genre-matched benchmark titles found in current local database. Studio projections are relying on fallback category estimates."
+            ))
 
         # --- 6. Audit Future Slate Status ---
         if target_year >= 2026:
