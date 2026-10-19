@@ -1,6 +1,13 @@
 # 🎬 CineStrategist
 ### Autonomous Multi-Agent Theatrical Release & Marketing Intelligence Platform
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-cinestrategist.onrender.com-00C7B7?style=for-the-badge&logo=render&logoColor=white)](https://cinestrategist.onrender.com/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-009688?style=flat&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![React](https://img.shields.io/badge/React-18.0+-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev)
+[![Gemini](https://img.shields.io/badge/Google_Gemini-3.8_Flash-8E75B2?style=flat&logo=googlegemini&logoColor=white)](https://ai.google.dev)
+
+🌐 **Live Production Deployment:** [https://cinestrategist.onrender.com/](https://cinestrategist.onrender.com/)
+
 > **Engineered for Studio Decision-Makers** (Red Chillies Entertainment, YRF, Dharma, Excel, and Global Distributors).  
 > Ingests an upcoming film's parameters, orchestrates 6 autonomous intelligence agents, and produces a data-backed release strategy, clash risk audit, demographic positioning thesis, and a 30/60/90-day marketing playbook.
 
