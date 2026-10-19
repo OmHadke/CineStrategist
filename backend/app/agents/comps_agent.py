@@ -32,6 +32,7 @@ class CompsAgent:
                 title=c["title"],
                 year=c["year"],
                 genres=c["genres"],
+                original_language=c.get("original_language"),
                 director=c.get("director"),
                 key_cast=c.get("key_cast", []),
                 budget_est=c["budget_est"],
@@ -53,9 +54,54 @@ class CompsAgent:
         else:
             spread = "₹50 Cr to ₹500 Cr (Estimated category baseline)"
 
-        # Check for genre archetypes
+        # Match Quality Evaluation
+        top_sim = comparables[0].similarity_score if comparables else 0.0
+        if top_sim >= 0.55 and len(comparables) >= 3:
+            match_quality = "High Confidence Studio Match"
+        elif top_sim >= 0.40 and len(comparables) >= 2:
+            match_quality = "Moderate Match Quality (Selective Historical Precedents)"
+        else:
+            match_quality = "Low Match Quality (Sparse Historical Benchmark Space - Fallback Estimation)"
+
+        # Configuration Anomaly Warnings
+        config_warnings = []
+        if film_input.budget_tier == "low" and film_input.star_tier in ["tier_1", "mega"]:
+            config_warnings.append(
+                "CONFIGURATION ANOMALY: A Tier-1 Megastar packaged in a Low-Budget (₹15-30 Cr) production is atypical in Indian commercial cinema. "
+                "Such setups usually reflect festival passion projects, backend profit-share deals, or unrealistic budget under-allocation."
+            )
+        elif film_input.budget_tier == "mega" and film_input.star_tier in ["tier_3", "debut"]:
+            config_warnings.append(
+                "CONFIGURATION ANOMALY: A Mega-Budget (₹200+ Cr) tentpole fronted by Tier-3 / Newcomer talent represents severe financial vulnerability "
+                "without an established franchise IP or proven director equity."
+            )
+
+        # Base Rate Baseline Context
         is_war_military = any(g.lower() in ["war", "action", "thriller"] for g in film_input.genres)
         is_romance_drama = any(g.lower() in ["romance", "romantic", "love", "musical"] for g in film_input.genres)
+        is_comedy_social = any(g.lower() in ["comedy", "social"] for g in film_input.genres)
+
+        if is_romance_drama:
+            base_rate = (
+                "Industry Base Rate: Historically, only ~18-22% of Hindi theatrical romances achieve Hit or Blockbuster status; "
+                "over 60% underperform due to over-reliance on generic tropes without an era-defining breakout soundtrack."
+            )
+        elif is_comedy_social or film_input.budget_tier == "low":
+            base_rate = (
+                "Industry Base Rate: High-concept low-budget comedies enjoy asymmetric ROI (low capital risk, 5-7x upside), "
+                "but over 65% fail to open theatrically without either viral humor clips or intense word-of-mouth expansion."
+            )
+        elif is_war_military:
+            base_rate = (
+                "Industry Base Rate: Mega-budget military action spectacles require a minimum ₹350+ Cr gross to achieve theatrical breakeven; "
+                "~40% fail to recoup heavy VFX and P&A expenditures despite explosive opening weekends."
+            )
+        else:
+            base_rate = (
+                "Industry Base Rate: Indian commercial theatrical releases experience a 75-80% historical underperformance rate; "
+                "theatrical longevity depends strictly on maintaining sub-35% Monday drop-offs."
+            )
+
         has_fighter_comp = any("fighter" in c.get("id", "") for c in raw_candidates)
 
         if is_war_military:
@@ -114,6 +160,9 @@ class CompsAgent:
             comparables=comparables,
             median_rating=median_rating,
             performance_spread=spread,
+            match_quality=match_quality,
+            base_rate_summary=base_rate,
+            configuration_warnings=config_warnings,
             common_success_factors=common_success,
             common_pitfall_risks=common_pitfalls,
             benchmark_summary=summary

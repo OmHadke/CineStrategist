@@ -10,6 +10,14 @@ import calendar
 
 # Moveable festivals by year
 MOVEABLE_FESTIVALS: Dict[int, Dict[str, str]] = {
+    2024: {
+        "eid_ul_fitr": "2024-04-11",
+        "holi": "2024-03-25",
+        "dussehra": "2024-10-12",
+        "diwali": "2024-11-01",
+        "ipl_start": "2024-03-22",
+        "ipl_end": "2024-05-26"
+    },
     2025: {
         "eid_ul_fitr": "2025-03-31",
         "holi": "2025-03-14",

@@ -42,6 +42,7 @@ class ComparableFilm(BaseModel):
     title: str
     year: int
     genres: List[str]
+    original_language: Optional[str] = Field(default=None, description="Original release language if dubbed (e.g. 'Telugu (Pan-India Hindi Dub)')")
     director: Optional[str] = None
     key_cast: List[str] = Field(default_factory=list)
     budget_est: str
@@ -58,6 +59,9 @@ class CompsAnalysis(BaseModel):
     comparables: List[ComparableFilm]
     median_rating: float
     performance_spread: str
+    match_quality: str = Field(default="High Confidence Studio Match", description="Indicates if candidate comps are tight or sparse fallback")
+    base_rate_summary: Optional[str] = Field(default=None, description="Industry genre baseline hit/flop base rate context")
+    configuration_warnings: List[str] = Field(default_factory=list, description="Warnings such as Star Tier vs Budget Scale anomaly")
     common_success_factors: List[str]
     common_pitfall_risks: List[str]
     benchmark_summary: str

@@ -13,12 +13,22 @@ from app.models.schemas import CalendarClash, CalendarAnalysis
 
 class CalendarService:
     def _extract_year_and_window(self, planned_window: str) -> Tuple[int, str]:
-        # Extract 4-digit year (2024 to 2035)
-        year_match = re.search(r'\b(202[4-9]|203[0-5])\b', planned_window)
-        year = int(year_match.group(1)) if year_match else 2026
+        # Extract 4-digit year (e.g. 2020 to 2039)
+        year_match = re.search(r'\b(20[1-3][0-9])\b', planned_window)
+        current_year = date.today().year
+        if year_match:
+            year = int(year_match.group(1))
+        elif "next year" in planned_window.lower():
+            year = current_year + 1
+        elif "this year" in planned_window.lower():
+            year = current_year
+        else:
+            year = 2026
 
         window_lower = planned_window.lower()
-        if any(w in window_lower for w in ["independence", "aug", "15 aug"]):
+        if any(w in window_lower for w in ["valentine", "feb 14", "14 feb", "february"]):
+            target_window = "valentine"
+        elif any(w in window_lower for w in ["independence", "aug", "15 aug"]):
             target_window = "independence_day"
         elif any(w in window_lower for w in ["republic", "jan", "26 jan"]):
             target_window = "republic_day"
@@ -32,6 +42,14 @@ class CalendarService:
             target_window = "ipl"
         elif any(w in window_lower for w in ["gandhi", "2 oct", "october"]):
             target_window = "gandhi_jayanti"
+        elif "q3" in window_lower:
+            target_window = "q3"
+        elif "q1" in window_lower:
+            target_window = "q1"
+        elif "q2" in window_lower:
+            target_window = "q2"
+        elif "q4" in window_lower:
+            target_window = "q4"
         else:
             target_window = "custom"
 
@@ -39,13 +57,63 @@ class CalendarService:
 
     def evaluate_window(self, planned_window: str, genres: List[str]) -> CalendarAnalysis:
         year, target_window = self._extract_year_and_window(planned_window)
+        current_year = date.today().year
         clashes: List[CalendarClash] = []
         synergies: List[str] = []
         warnings: List[str] = []
 
-        is_future_unannounced = year >= 2026 # 2026+ slates are partially or completely unannounced
+        if year < current_year:
+            warnings.append(
+                f"Historical Retrospective Window: '{planned_window}' is a past release window ({year} < {current_year}). "
+                f"Analysis is operating in retrospective backtest mode."
+            )
 
-        if target_window == "independence_day":
+        is_future_unannounced = year >= 2026
+
+        if target_window == "valentine":
+            d = date(year, 2, 14)
+            day_name = calendar.day_name[d.weekday()]
+            
+            if d.weekday() == 6: # Sunday
+                weekend_structure = (
+                    f"Valentine's Day ({day_name}, Feb 14, {year}). High-density commercial date-night demand concentrated "
+                    f"on Sunday evening. Standard 3-day opening weekend (Fri Feb 12 - Sun Feb 14) with standard Monday drop-off (NOT a gazetted holiday)."
+                )
+            else:
+                weekend_structure = (
+                    f"Valentine's Day ({day_name}, Feb 14, {year}). Mid-week commercial date-night bump; theatrical footfalls peak after 6 PM."
+                )
+
+            synergies.append(f"Valentine's Window ({day_name}, Feb 14, {year}): Date-night footfall multiplier (1.25x) for romance and youth demographics.")
+            
+            clashes.append(CalendarClash(
+                date=f"{year}-02-14 ({day_name})",
+                event_name=f"Valentine's Day {year}",
+                event_type="holiday",
+                severity="low",
+                impact_multiplier=1.25,
+                description=weekend_structure
+            ))
+
+            # Realistic Timing Clash: National Board Exam Season (Feb-March)
+            clashes.append(CalendarClash(
+                date=f"Mid-February to March {year}",
+                event_name=f"National Board Examination Season ({year})",
+                event_type="exam_season",
+                severity="medium",
+                impact_multiplier=0.80,
+                description=(
+                    "CBSE, ICSE, and State Board secondary/higher examinations commence mid-February and run through March. "
+                    "Significantly depresses weekday afternoon and youth/student theatrical attendance across all major circuits."
+                )
+            ))
+            warnings.append(
+                f"Board Exam Headwind: Feb-March academic exam period reduces teenage and collegiate weekday footfalls. Focus on prime evening weekend shows."
+            )
+            risk_score = 5 # Moderate Risk due to exam season headwind
+            recommended_range = f"Friday, February 12, {year} to Sunday, February 14, {year}" if d.weekday() == 6 else f"February 12-15, {year}"
+
+        elif target_window == "independence_day":
             d = date(year, 8, 15)
             day_name = calendar.day_name[d.weekday()]
             
@@ -73,7 +141,6 @@ class CalendarService:
                 description=weekend_structure
             ))
 
-            # Clash risk modeling specific to Independence Day corridor
             if is_future_unannounced:
                 clashes.append(CalendarClash(
                     date=f"Mid-August {year}",
@@ -93,12 +160,34 @@ class CalendarService:
             risk_score = 6 # High competition corridor
             recommended_range = f"Friday, August 13, {year} to Sunday, August 15, {year}" if d.weekday() == 6 else f"August 14-17, {year}"
 
+        elif target_window == "q3":
+            # Q3 = July to September
+            synergies.append(f"Q3 {year}: Encompasses prime Independence Day (Aug 15) and Janmashtami festive corridors.")
+            clashes.append(CalendarClash(
+                date=f"Mid-August {year}",
+                event_name=f"Independence Day Corridor Clustering ({year})",
+                event_type="tentpole_clash",
+                severity="high",
+                impact_multiplier=0.75,
+                description=f"Q3 contains Independence Day (Aug 15), the highest-density competitive tentpole corridor in Q3. Unannounced A-list tentpoles will crowd mid-August."
+            ))
+            clashes.append(CalendarClash(
+                date=f"July - August {year}",
+                event_name=f"Monsoon Weather Footfall Disruptions ({year})",
+                event_type="dry_period",
+                severity="medium",
+                impact_multiplier=0.85,
+                description="Heavy seasonal monsoon rainfall frequently causes transit and box office disruptions across Mumbai, Gujarat, and coastal territories."
+            ))
+            warnings.append(f"Q3 Corridor Caution: Mid-August is highly congested and July-August carries regional monsoon transit risks. September offers cleaner runway.")
+            risk_score = 6 # High Risk due to Independence Day and monsoon
+            recommended_range = f"September {year} (Post-Monsoon & Post-Independence Day Buffer)"
+
         elif target_window == "republic_day":
             d = date(year, 1, 26)
             day_name = calendar.day_name[d.weekday()]
             weekend_structure = f"Republic Day ({day_name}, Jan 26, {year})"
             impact_mult = 1.45
-            
             synergies.append(f"Republic Day ({day_name}, Jan 26, {year}): Patriotic and action multiplier (Multiplier: {impact_mult}x)")
             clashes.append(CalendarClash(
                 date=f"{year}-01-26 ({day_name})",
@@ -114,8 +203,6 @@ class CalendarService:
         elif target_window == "diwali":
             diwali_date = MOVEABLE_FESTIVALS.get(year, {}).get("diwali", f"{year}-11-01")
             synergies.append(f"Diwali Festive Surge ({diwali_date}): Highest family footfall expansion period of the year (1.60x).")
-            
-            # Pre-diwali lull trap
             clashes.append(CalendarClash(
                 date=f"T-3 Days before {diwali_date}",
                 event_name=f"Pre-Diwali Laxmi Pujan Lull ({year})",
@@ -132,7 +219,7 @@ class CalendarService:
                 impact_multiplier=1.60,
                 description="Post-puja theatrical explosion for broad mass and family entertainers."
             ))
-            risk_score = 7 # High clash and lull risk
+            risk_score = 7
             recommended_range = f"Diwali Day ({diwali_date}) or Post-Diwali Monday"
 
         elif target_window == "christmas":
@@ -150,18 +237,18 @@ class CalendarService:
             risk_score = 6
             recommended_range = f"Dec 21 - Dec 25, {year}"
 
-        else: # Custom or unspecified
+        else: # Custom or unrecognised window
             clashes.append(CalendarClash(
-                date=f"Corridor {year}",
-                event_name=f"Open Window ({planned_window})",
-                event_type="holiday",
-                severity="low",
+                date=f"Unannounced Corridor {year}",
+                event_name=f"Open Release Window ({planned_window})",
+                event_type="tentpole_clash",
+                severity="medium",
                 impact_multiplier=1.0,
-                description=f"Standard theatrical corridor for {planned_window} in {year}."
+                description=f"Standard commercial theatrical corridor for '{planned_window}' in {year}. Unannounced future slate carries standard corridor uncertainty."
             ))
-            synergies.append("Clean theatrical runway without direct major festive distractions.")
-            risk_score = 3
-            recommended_range = planned_window
+            synergies.append("Flexible release runway without direct mandatory holiday date-locking.")
+            risk_score = 5 # Moderate uncertainty for unannounced slate
+            recommended_range = f"{planned_window} (Friday Release Recommended)"
 
         if risk_score >= 8:
             risk_tier = "Severe Clash Hazard"

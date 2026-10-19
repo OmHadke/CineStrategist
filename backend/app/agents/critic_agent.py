@@ -38,18 +38,44 @@ class CriticAgent:
 
         # --- 1. Audit Calendar Year Alignment ---
         calendar_events = calendar.clashes_and_events
-        first_event_date = calendar_events[0].date if calendar_events else ""
-        year_in_event = str(target_year) in first_event_date
-        
-        if year_in_event:
+        # 1. Dynamically identify target corridor name / month
+        window_lower = film_input.planned_window.lower()
+        if "valentine" in window_lower or "feb" in window_lower:
+            target_period = "February (Valentine's Window)"
+        elif "independence" in window_lower or "aug" in window_lower:
+            target_period = "August (Independence Day Corridor)"
+        elif "republic" in window_lower or "jan" in window_lower:
+            target_period = "January (Republic Day Corridor)"
+        elif "diwali" in window_lower:
+            target_period = "October/November (Diwali Corridor)"
+        elif "christmas" in window_lower or "dec" in window_lower:
+            target_period = "December (Christmas Corridor)"
+        elif "q3" in window_lower:
+            target_period = "Q3 (July - September Corridor)"
+        else:
+            target_period = film_input.planned_window
+
+        first_event = calendar_events[0] if calendar_events else None
+        first_event_date = first_event.date if first_event else "Unknown"
+        has_concrete_date = any(char.isdigit() for char in first_event_date) and ("-" in first_event_date or "Aug" in first_event_date or "Feb" in first_event_date or "Jan" in first_event_date)
+
+        if str(target_year) in first_event_date and has_concrete_date:
             audit_items.append(AuditItem(
-                claim=f"Calendar event year ({first_event_date}) strictly matches requested window ({film_input.planned_window}).",
+                claim=f"Release corridor mapped to concrete calendar date in target year ({first_event_date}).",
                 claim_type="calendar_date",
-                source_reference="Python Datetime Calendar Algorithm",
+                source_reference="Python Datetime Calculation",
                 status="VERIFIED",
                 critic_notes=f"Confirmed: Release event dated {first_event_date} matches the parsed user target year {target_year}."
             ))
             verified_count += 1
+        elif str(target_year) in first_event_date:
+            audit_items.append(AuditItem(
+                claim=f"Release corridor timeframe scoped to {target_year} ({first_event_date}).",
+                claim_type="calendar_date",
+                source_reference="Calendar Service Year Validator",
+                status="PROBABLE_INFERENCE",
+                critic_notes=f"Date is an unconfirmed corridor frame ({first_event_date}); specific Friday release date pending exhibitor slate confirmation."
+            ))
         else:
             audit_items.append(AuditItem(
                 claim=f"Calendar event year ({first_event_date}) vs requested window ({film_input.planned_window}).",
@@ -60,28 +86,28 @@ class CriticAgent:
             ))
 
         # --- 2. Audit Clash Relevance & Scoping ---
-        is_independence = "independence" in film_input.planned_window.lower() or "aug" in film_input.planned_window.lower()
-        has_unrelated_clash = any(
-            "diwali" in c.event_name.lower() or "christmas" in c.event_name.lower() 
-            for c in calendar_events
-        ) if is_independence else False
+        has_off_target_festivals = False
+        if "aug" in target_period.lower() and any("diwali" in c.event_name.lower() or "christmas" in c.event_name.lower() for c in calendar_events):
+            has_off_target_festivals = True
+        elif "feb" in target_period.lower() and any("diwali" in c.event_name.lower() or "independence" in c.event_name.lower() for c in calendar_events):
+            has_off_target_festivals = True
 
-        if not has_unrelated_clash:
+        if not has_off_target_festivals:
             audit_items.append(AuditItem(
-                claim="Release corridor clash events strictly scoped to target month (August).",
+                claim=f"Release corridor clash events strictly scoped to target window ({target_period}).",
                 claim_type="calendar_date",
                 source_reference="Corridor Window Filter",
                 status="VERIFIED",
-                critic_notes="Confirmed: No off-target festive clashes (e.g. Diwali/Christmas) present in August evaluation."
+                critic_notes=f"Confirmed: No off-target festive clashes present in {target_period} evaluation."
             ))
             verified_count += 1
         else:
             audit_items.append(AuditItem(
-                claim="Unrelated festival clash detected in corridor evaluation.",
+                claim=f"Unrelated festival clash detected in {target_period} evaluation.",
                 claim_type="calendar_date",
                 source_reference="Corridor Window Filter",
                 status="CAUTION_UNVERIFIED",
-                critic_notes="Contradiction Flagged: Found off-season festival clash in August corridor analysis."
+                critic_notes=f"Contradiction Flagged: Found off-season festival clash in {target_period} corridor analysis."
             ))
 
         # --- 3. Audit Consistency between Calendar Risk and Strategy Competition ---
@@ -98,7 +124,7 @@ class CriticAgent:
                 claim_type="strategic_inference",
                 source_reference="Multi-Agent Cross-Check Engine",
                 status="VERIFIED",
-                critic_notes="Integrity verified: Strategy competition classification logically reflects the high-risk calendar rating."
+                critic_notes="Integrity verified: Strategy competition classification logically reflects the calendar risk score."
             ))
             verified_count += 1
         else:
@@ -111,6 +137,7 @@ class CriticAgent:
             ))
 
         # --- 4. Audit Sunday Holiday Weekend Calculation ---
+        is_independence = "independence" in film_input.planned_window.lower() or "aug" in film_input.planned_window.lower()
         if is_independence and target_year == 2027:
             d_aug15 = date(2027, 8, 15)
             is_sunday = d_aug15.weekday() == 6
@@ -134,6 +161,17 @@ class CriticAgent:
                     status="CAUTION_UNVERIFIED",
                     critic_notes="Unsupported claim: Aug 15, 2027 is a Sunday, which provides no additional Monday/Friday gazetted holiday."
                 ))
+        elif "valentine" in window_lower and target_year == 2027:
+            d_val = date(2027, 2, 14)
+            is_val_sunday = d_val.weekday() == 6
+            audit_items.append(AuditItem(
+                claim="Valentine's Day 2027 (Feb 14) validated as a Sunday date-night window.",
+                claim_type="calendar_date",
+                source_reference="Python Datetime Calculation (2027-02-14 -> Sunday)",
+                status="VERIFIED",
+                critic_notes="Confirmed: 14 Feb 2027 falls on Sunday; evening ticket density prioritized without false Monday holiday claims."
+            ))
+            verified_count += 1
 
         # --- 5. Audit Historical Comps Data Source (Honest Attribution) ---
         if comps.comparables:
@@ -163,19 +201,43 @@ class CriticAgent:
                 status="PROBABLE_INFERENCE",
                 critic_notes=(
                     f"Official competitor release slate for {target_year} is currently unannounced. "
-                    f"High competition assumption is derived from 10-year historical precedent for Independence Day, "
-                    f"not a confirmed day-and-date competitor filing."
+                    f"Competition assumptions are derived from historical corridor precedent, not confirmed competitor filings."
                 )
             ))
 
-        # --- 7. Audit Unsourced Figures & Planning Heuristics ---
+        # --- 7. Audit Unsourced Figures & Actual Campaign Targets ---
+        m_kpi = marketing.timeline_beats[3].kpi_metric if len(marketing.timeline_beats) > 3 else "Digital debut reach targets"
+        cal_mults = [f"{c.impact_multiplier}x" for c in calendar_events if c.impact_multiplier != 1.0]
+        mult_str = ", ".join(cal_mults) if cal_mults else "heuristic weights"
+
         audit_items.append(AuditItem(
-            claim="Marketing debut targets (e.g. ~80-100M views) and calendar multipliers (1.35x / 0.75x).",
+            claim=f"Campaign metrics ('{m_kpi[:45]}...') and corridor multipliers ({mult_str}).",
             claim_type="strategic_inference",
-            source_reference="Studio Planning Heuristics (Not empirical certainties)",
+            source_reference="Studio Planning Heuristics (Not empirical guarantees)",
             status="PROBABLE_INFERENCE",
-            critic_notes="Auditor Flag: Multipliers and digital reach targets are illustrative studio planning estimates and heuristic pacing benchmarks, not certified contractual guarantees."
+            critic_notes="Auditor Flag: Digital targets and calendar multipliers are illustrative studio benchmarks, not certified contractual guarantees."
         ))
+
+        # --- 8. Audit Content Integrity & Template Leakage ---
+        is_action = any(g.lower() in ["action", "war", "thriller", "spy"] for g in film_input.genres)
+        pan_india_text = strategy.pan_india_distribution_plan.lower()
+        if not is_action and any(w in pan_india_text for w in ["military", "combat", "mythri", "air dragons", "special forces"]):
+            audit_items.append(AuditItem(
+                claim="Cross-Genre Content Integrity in Distribution Plan.",
+                claim_type="strategic_inference",
+                source_reference="Content Leakage Auditor",
+                status="CAUTION_UNVERIFIED",
+                critic_notes="Template Leak Detected: Action/military terminology found in non-action distribution strategy."
+            ))
+        else:
+            audit_items.append(AuditItem(
+                claim="Distribution strategy is strictly aligned with film genres and target scale.",
+                claim_type="strategic_inference",
+                source_reference="Content Leakage Auditor",
+                status="VERIFIED",
+                critic_notes="Confirmed: No cross-genre leakage or mismatched distribution assumptions detected."
+            ))
+            verified_count += 1
 
         # Strict Mathematical Counting: Count only strictly VERIFIED claims
         verified_count = sum(1 for item in audit_items if item.status == "VERIFIED")

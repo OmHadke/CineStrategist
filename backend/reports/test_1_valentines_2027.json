@@ -1,0 +1,551 @@
+{
+  "report_id": "cine-43c64f00",
+  "film_input": {
+    "title": "Tere Shehar Mein",
+    "genres": [
+      "Romance",
+      "Drama"
+    ],
+    "language": "Hindi",
+    "budget_tier": "mid",
+    "star_tier": "tier_1",
+    "director": "",
+    "target_audience": "Urban youth, college demographics, contemporary multiplex couples",
+    "planned_window": "Valentine's Week 2027",
+    "logline": "An architect returns to his ancestral hometown to oversee a heritage conservation project, where he unexpectedly falls for a fierce local archivist fighting to preserve the town's disappearing history.",
+    "platforms": "theatrical",
+    "pan_india": true
+  },
+  "comps_analysis": {
+    "comparables": [
+      {
+        "id": "kabir-singh-2019",
+        "title": "Kabir Singh",
+        "year": 2019,
+        "genres": [
+          "Romance",
+          "Drama"
+        ],
+        "original_language": "Hindi",
+        "director": "Sandeep Reddy Vanga",
+        "key_cast": [
+          "Shahid Kapoor",
+          "Kiara Advani"
+        ],
+        "budget_est": "\u20b960 Cr",
+        "box_office_est": "\u20b9380 Cr",
+        "verdict": "All-Time Blockbuster",
+        "imdb_rating": 7.1,
+        "tmdb_score": 7.2,
+        "similarity_score": 0.8,
+        "similarity_factors": [
+          "Matching genres: Drama, Romance",
+          "Matching budget scale (Mid)",
+          "Same primary market (Hindi)"
+        ],
+        "source": "Curated Studio Benchmark Index (2019)",
+        "key_takeaway": "Intense romance with an all-time classic heartbreak soundtrack can generate blockbuster tier-1 action numbers even with non-holiday release windows."
+      },
+      {
+        "id": "love-aaj-kal-2020",
+        "title": "Love Aaj Kal",
+        "year": 2020,
+        "genres": [
+          "Romance",
+          "Drama"
+        ],
+        "original_language": "Hindi",
+        "director": "Imtiaz Ali",
+        "key_cast": [
+          "Kartik Aaryan",
+          "Sara Ali Khan"
+        ],
+        "budget_est": "\u20b945 Cr",
+        "box_office_est": "\u20b953 Cr",
+        "verdict": "Flop",
+        "imdb_rating": 4.7,
+        "tmdb_score": 5.4,
+        "similarity_score": 0.8,
+        "similarity_factors": [
+          "Matching genres: Drama, Romance",
+          "Matching budget scale (Mid)",
+          "Same primary market (Hindi)"
+        ],
+        "source": "Curated Studio Benchmark Index (2020)",
+        "key_takeaway": "CRITICAL DOWNSIDE BENCHMARK: Valentine's timing and hit music can deliver a massive Day-1, but convoluted relationship conflicts and weak chemistry trigger a catastrophic 70%+ Monday crash."
+      },
+      {
+        "id": "yjhd-2013",
+        "title": "Yeh Jawaani Hai Deewani",
+        "year": 2013,
+        "genres": [
+          "Romance",
+          "Drama",
+          "Comedy"
+        ],
+        "original_language": "Hindi",
+        "director": "Ayan Mukerji",
+        "key_cast": [
+          "Ranbir Kapoor",
+          "Deepika Padukone",
+          "Aditya Roy Kapur",
+          "Kalki Koechlin"
+        ],
+        "budget_est": "\u20b940 Cr",
+        "box_office_est": "\u20b9320 Cr",
+        "verdict": "All-Time Blockbuster",
+        "imdb_rating": 7.2,
+        "tmdb_score": 7.4,
+        "similarity_score": 0.68,
+        "similarity_factors": [
+          "Matching genres: Drama, Romance",
+          "Matching budget scale (Mid)",
+          "Same primary market (Hindi)"
+        ],
+        "source": "Curated Studio Benchmark Index (2013)",
+        "key_takeaway": "Youth romantic dramedies achieve generational longevity when driven by an immortal soundtrack and relatable modern life transitions."
+      },
+      {
+        "id": "sita-ramam-2022",
+        "title": "Sita Ramam",
+        "year": 2022,
+        "genres": [
+          "Romance",
+          "Drama",
+          "War"
+        ],
+        "original_language": "Telugu (Pan-India Hindi Dub)",
+        "director": "Hanu Raghavapudi",
+        "key_cast": [
+          "Dulquer Salmaan",
+          "Mrunal Thakur",
+          "Rashmika Mandanna"
+        ],
+        "budget_est": "\u20b930 Cr",
+        "box_office_est": "\u20b9105 Cr",
+        "verdict": "Blockbuster",
+        "imdb_rating": 8.5,
+        "tmdb_score": 8.0,
+        "similarity_score": 0.58,
+        "similarity_factors": [
+          "Matching genres: Drama, Romance",
+          "Matching budget scale (Mid)"
+        ],
+        "source": "Curated Studio Benchmark Index (2022)",
+        "key_takeaway": "Period romantic dramas combining military duty with poignant personal sacrifice achieve stellar word-of-mouth multipliers even from humble opening days."
+      },
+      {
+        "id": "chandigarh-kare-aashiqui-2021",
+        "title": "Chandigarh Kare Aashiqui",
+        "year": 2021,
+        "genres": [
+          "Romance",
+          "Comedy",
+          "Drama"
+        ],
+        "original_language": "Hindi",
+        "director": "Abhishek Kapoor",
+        "key_cast": [
+          "Ayushmann Khurrana",
+          "Vaani Kapoor"
+        ],
+        "budget_est": "\u20b940 Cr",
+        "box_office_est": "\u20b938 Cr",
+        "verdict": "Flop",
+        "imdb_rating": 6.8,
+        "tmdb_score": 6.9,
+        "similarity_score": 0.58,
+        "similarity_factors": [
+          "Matching genres: Drama, Romance",
+          "Matching budget scale (Mid)",
+          "Same primary market (Hindi)"
+        ],
+        "source": "Curated Studio Benchmark Index (2021)",
+        "key_takeaway": "CRITICAL DOWNSIDE BENCHMARK: Progressive social taboos face resistance in heartland single screens if the subject matter feels uncomfortable for traditional family audiences."
+      },
+      {
+        "id": "rocky-aur-rani-2023",
+        "title": "Rocky Aur Rani Kii Prem Kahaani",
+        "year": 2023,
+        "genres": [
+          "Romance",
+          "Comedy",
+          "Family",
+          "Drama"
+        ],
+        "original_language": "Hindi",
+        "director": "Karan Johar",
+        "key_cast": [
+          "Ranveer Singh",
+          "Alia Bhatt",
+          "Dharmendra",
+          "Shabana Azmi",
+          "Jaya Bachchan"
+        ],
+        "budget_est": "\u20b9160 Cr",
+        "box_office_est": "\u20b9355 Cr",
+        "verdict": "Hit",
+        "imdb_rating": 6.8,
+        "tmdb_score": 7.0,
+        "similarity_score": 0.48,
+        "similarity_factors": [
+          "Matching genres: Drama, Romance",
+          "Same primary market (Hindi)"
+        ],
+        "source": "Curated Studio Benchmark Index (2023)",
+        "key_takeaway": "High-budget romantic family dramas require both a blockbuster music album and multi-generational conflicts to pull families into premium multiplexes."
+      }
+    ],
+    "median_rating": 6.9,
+    "performance_spread": "\u20b938 Cr to \u20b9380 Cr",
+    "match_quality": "High Confidence Studio Match",
+    "base_rate_summary": "Industry Base Rate: Historically, only ~18-22% of Hindi theatrical romances achieve Hit or Blockbuster status; over 60% underperform due to over-reliance on generic tropes without an era-defining breakout soundtrack.",
+    "configuration_warnings": [],
+    "common_success_factors": [
+      "Chartbuster music album (with at least 2 viral tracks) driving pre-release anticipation across streaming and short-form video",
+      "Authentic chemistry between leads reinforced through high-decibel promotional city tours and college activations",
+      "Emotional high-stakes climax (heartbreak or euphoria) that sparks passionate repeat viewing and word-of-mouth"
+    ],
+    "common_pitfall_risks": [
+      "Neglecting heartland single-screens by framing conflicts exclusively around niche ultra-affluent metro lifestyles",
+      "Releasing with an uninspired soundtrack; romantic titles cannot open purely on star power without musical momentum",
+      "Trailer revealing entire narrative arc, reducing urgency for opening weekend attendance"
+    ],
+    "benchmark_summary": "Benchmarked against 6 comparable romantic/drama titles (MID scale). Historical range spans \u20b938 Cr to \u20b9380 Cr (Median IMDb: 6.9). KEY RETROSPECTIVE LESSON: In modern Indian cinema, romance and emotional drama box-office velocity is almost 70% correlated with the breakout success of the musical soundtrack (e.g. Aashiqui 2, Kabir Singh, YJHD). Sustained legs depend on high repeat youth footfalls and strong emotional word-of-mouth."
+  },
+  "calendar_analysis": {
+    "planned_window": "Valentine's Week 2027",
+    "overall_risk_score": 5,
+    "risk_tier": "Moderate Risk",
+    "clashes_and_events": [
+      {
+        "date": "2027-02-14 (Sunday)",
+        "event_name": "Valentine's Day 2027",
+        "event_type": "holiday",
+        "severity": "low",
+        "impact_multiplier": 1.25,
+        "description": "Valentine's Day (Sunday, Feb 14, 2027). High-density commercial date-night demand concentrated on Sunday evening. Standard 3-day opening weekend (Fri Feb 12 - Sun Feb 14) with standard Monday drop-off (NOT a gazetted holiday)."
+      },
+      {
+        "date": "Mid-February to March 2027",
+        "event_name": "National Board Examination Season (2027)",
+        "event_type": "exam_season",
+        "severity": "medium",
+        "impact_multiplier": 0.8,
+        "description": "CBSE, ICSE, and State Board secondary/higher examinations commence mid-February and run through March. Significantly depresses weekday afternoon and youth/student theatrical attendance across all major circuits."
+      }
+    ],
+    "festival_synergies": [
+      "Valentine's Window (Sunday, Feb 14, 2027): Date-night footfall multiplier (1.25x) for romance and youth demographics."
+    ],
+    "hazard_warnings": [
+      "Board Exam Headwind: Feb-March academic exam period reduces teenage and collegiate weekday footfalls. Focus on prime evening weekend shows."
+    ],
+    "recommended_date_range": "Friday, February 12, 2027 to Sunday, February 14, 2027"
+  },
+  "audience_analysis": {
+    "primary_archetypes": [
+      "Youth & College Demographic (driving repeat viewings & streaming audio saturation)",
+      "Metro & Urban Multiplex Couples & Contemporary Romance Seekers",
+      "Female Decision-Makers & Music Streaming Enthusiasts"
+    ],
+    "urban_multiplex_appeal": 75,
+    "heartland_single_screen_appeal": 25,
+    "sentiment_drivers": [
+      "Soulful, chart-topping musical album that dominates Spotify India and social reels",
+      "Magnetic screen chemistry and emotionally raw confrontation between the leads",
+      "Universal romantic stakes: personal sacrifice, modern relationship dilemmas, or heartbreak"
+    ],
+    "fatigue_or_backlash_risks": [
+      "THE MUSIC DEPENDENCY HAZARD: Romantic dramas cannot open on star power alone if the music album fails to achieve viral breakout status (T-30 days prior).",
+      "Risk of isolating single screens if dialogues are overly stylized or urban-centric without heartland emotional grounding."
+    ],
+    "positioning_hook": "Position Tere Shehar Mein as the definitive modern love story of the season, propelled by an unforgettable musical soundtrack and poignant emotional stakes.",
+    "word_of_mouth_dependence": "High (Music & Emotional Word-of-Mouth Dependent)"
+  },
+  "release_strategy": {
+    "ranked_release_options": [
+      {
+        "rank": 1,
+        "proposed_date": "Friday, February 12, 2027 (Opening into Valentine's Weekend Sunday Feb 14)",
+        "slot_type": "Commercial Thematic Date-Night Corridor",
+        "screen_count_est": "3,200 - 3,800 screens across India + 600 overseas",
+        "competition_level": "Manageable Counter-Release",
+        "pros": [
+          "High-density commercial date-night footfall surge on Sunday, Feb 14",
+          "Maximum youth and couple ticket elasticity across premium urban multiplexes",
+          "Ideal promotional window for music-driven marketing momentum"
+        ],
+        "cons": [
+          "Feb 14 falls on a Sunday, offering zero gazetted weekday holiday buffer",
+          "National secondary/higher board exam season (CBSE/ICSE) depresses weekday student afternoon footfalls"
+        ],
+        "strategic_rationale": "Primary corridor targeted by studio. While manageable counter-release requires proactive marketing and vigilance against competitor announcements, the corridor footfall multiplier offers the highest opening velocity."
+      },
+      {
+        "rank": 2,
+        "proposed_date": "Friday, March 5, 2027",
+        "slot_type": "Post-Valentine Counter-Programming Window",
+        "screen_count_est": "2,600 - 3,000 screens",
+        "competition_level": "Unknown / Unconfirmed Runway (Future Slate Unannounced)",
+        "pros": [
+          "Completely avoids initial festive tentpole collision noise and screen-sharing disputes",
+          "Lower exhibitor commission terms and cheaper broadcast marketing rates",
+          "Targeted screen allocation ensures higher seat-occupancy ratios"
+        ],
+        "cons": [
+          "Foregoes the initial holiday/thematic weekend single-day surge",
+          "Competitor slate for late corridor 2027 is unannounced, requiring ongoing exhibitor intelligence"
+        ],
+        "strategic_rationale": "Contingency escape window scheduled for Friday, March 5, 2027. While future competitor slates remain unannounced, historical scheduling patterns indicate lower collision risk following the primary corridor rush."
+      }
+    ],
+    "screen_distribution_strategy": "Distribute across 3,200 - 3,800 screens across India + 600 overseas. Maintain balanced 50/50 multiplex-to-single-screen allocation across all major territories.",
+    "ott_windowing": {
+      "theatrical_holdback_weeks": 8,
+      "industry_norm_compliance": "Typical ~8-Week Multiplex Theatrical Window Norm",
+      "recommended_ott_partners": [
+        "Netflix India",
+        "Prime Video",
+        "JioCinema"
+      ],
+      "rationale": "Under prevailing Indian theatrical practice, major national multiplex chains (PVR-INOX, Cinepolis) observe a typical ~8-week (56-day) theatrical exclusivity window before SVOD premiere. Studio distributors should confirm specific contractual holdback terms directly with exhibitors during final booking agreements."
+    },
+    "pan_india_distribution_plan": "Deploy localized dubbed releases in Telugu and Tamil across South metropolitan circuits, supported by regional celebrity trailer launches and localized marketing assets."
+  },
+  "marketing_playbook": {
+    "campaign_slogan_or_theme": "Every Heart Has A City To Return To: Tere Shehar Mein",
+    "key_narrative_hooks": [
+      "Intoxicating lead chemistry and soulful, era-defining music soundtrack",
+      "Relatable modern romantic conflicts: devotion, ambition, and heartbreak",
+      "Grand, picturesque visual storytelling engineered for big-screen romantic escapism"
+    ],
+    "timeline_beats": [
+      {
+        "phase": "T-90 to T-60 (Tease)",
+        "day_offset": "T-75 Days",
+        "asset_type": "Acoustic First Look Motion Poster",
+        "title": "Tere Shehar Mein: Character Teaser & Acoustic Theme Motif",
+        "description": "Release an intimate first-look motion poster showcasing the lead pair in a scenic urban or rustic twilight setting, accompanied by a 30-second acoustic melody snippet. No dialogue; ignite musical curiosity.",
+        "target_channels": [
+          "YouTube Shorts",
+          "Instagram Reels",
+          "Spotify Artist Page"
+        ],
+        "kpi_metric": "Illustrative Target: ~20-25M organic digital views; strong audio bookmark rate"
+      },
+      {
+        "phase": "T-60 to T-30 (Hype)",
+        "day_offset": "T-45 Days",
+        "asset_type": "Song 1 (Lead Romantic Duet) + Video Launch",
+        "title": "Lead Love Anthem Drop & Reels Hookstep Trend",
+        "description": "Drop Song 1: the album's crown jewel romantic duet (spearheaded by marquee playback singers e.g. Arijit Singh / Shreya Ghoshal). Execute simultaneous campus and radio blitz; partner with top 50 Instagram creators for couple reels.",
+        "target_channels": [
+          "Spotify India Top 50",
+          "YouTube Worldwide",
+          "Radio Mirchi / Red FM",
+          "Reels"
+        ],
+        "kpi_metric": "Illustrative Target: ~60M+ cross-platform views; Top 5 Spotify India Viral entry"
+      },
+      {
+        "phase": "T-30 to T-15 (Peak)",
+        "day_offset": "T-25 Days",
+        "asset_type": "Song 2 (Heartbreak / Passion Ballad) & College Campus Tour",
+        "title": "Soulful Passion Track & Multi-City College Roadshow",
+        "description": "Release the intense heartbreak/conflict track. Cast embarks on high-visibility college festivals and mall appearances across Delhi, Mumbai, Pune, Bangalore, and Chandigarh for acoustic sing-alongs.",
+        "target_channels": [
+          "University Fests",
+          "Streaming Platforms",
+          "Prime-Time Broadcast Collabs"
+        ],
+        "kpi_metric": "Heuristic Estimate: ~25% projected increase in youth advance booking intention"
+      },
+      {
+        "phase": "T-14 to T-7 (Trailer & Advance)",
+        "day_offset": "T-12 Days",
+        "asset_type": "Official Theatrical Trailer",
+        "title": "Emotional Theatrical Trailer Launch Event",
+        "description": "Unveil the 3-minute official theatrical cut focusing on the emotional turning point and high-stakes romantic conflict. Pair trailer release with the complete album jukebox on digital audio streaming.",
+        "target_channels": [
+          "DCP Multiplex Screens",
+          "YouTube Global Live Stream",
+          "Lifestyle & Fashion Digital Outlets"
+        ],
+        "kpi_metric": "Illustrative Target: ~70-80M views in 24h; >90% positive audience sentiment score"
+      },
+      {
+        "phase": "T-7 to Release (Blitz)",
+        "day_offset": "T-5 Days",
+        "asset_type": "Advance Booking Blitz + Date-Night Combos",
+        "title": "Advance Ticketing Open + Couple & Student Promotional Packages",
+        "description": "Open nationwide advance ticketing on BookMyShow and Paytm Insider with exclusive couple-seat packages and collegiate promotional discounts. Host exclusive midnight fan club musical premiere screenings.",
+        "target_channels": [
+          "BookMyShow / Paytm",
+          "Lifestyle Apps",
+          "FM Radio Takeover"
+        ],
+        "kpi_metric": "Heuristic Benchmark: ~\u20b98-12 Cr advance ticketing pre-sales prior to Day-1"
+      },
+      {
+        "phase": "Post-Release (Sustain)",
+        "day_offset": "Release + 3 Days",
+        "asset_type": "Emotional Audience Climax Reaction Cut",
+        "title": "Audience Tears & Standing Ovation Reaction Promo",
+        "description": "Capture raw emotional audience reactions, tears, and spontaneous applause from packed multiplexes. Release the unplugged reprise version of the lead ballad to sustain second-week momentum.",
+        "target_channels": [
+          "Instagram Reels",
+          "YouTube Shorts",
+          "Music Streaming Platforms"
+        ],
+        "kpi_metric": "Heuristic Benchmark: Maintain sub-25% Monday drop-off in urban multiplex circuits"
+      }
+    ],
+    "music_release_cadence": "For a modern romantic drama, the music album is the primary commercial driver. The release must follow a strict 3-stage strategy: (1) Intoxicating love anthem at T-45 to capture mainstream radio and reels, (2) Deeply moving heartbreak ballad at T-25, and (3) Full soundtrack jukebox alongside theatrical trailer at T-12 to maximize streaming royalty saturation before opening day.",
+    "brand_tie_ins": [
+      "Coffee Chain & QSR Partner (signature couple drinks and thematic cup sleeves)",
+      "Youth Fashion & Apparel Brand (protagonist wardrobe collection)",
+      "Audio Streaming Platform Exclusive (immersive artist commentary playlist)",
+      "Dating / Social Discovery App (Valentine's or seasonal 'First Date at Movies' ticket bundles)"
+    ],
+    "single_screen_vs_multiplex_activation": "Urban multiplexes receive aesthetic romantic photo-booths and Dolby Atmos acoustic listening lounges. Heartland single screens receive massive cutout banners highlighting the film's larger-than-life emotional stakes and musical soul."
+  },
+  "critic_audit": {
+    "credibility_score": 87,
+    "verdict": "Approved with Inferences",
+    "total_claims_checked": 8,
+    "verified_claims_count": 5,
+    "probable_inferences_count": 3,
+    "caution_unverified_count": 0,
+    "score_formula_breakdown": "Formula: ((Verified [5] \u00d7 1.0) + (Inferences [3] \u00d7 0.65) - (Cautions [0] \u00d7 0.50)) / Total Checked [8] \u00d7 100 = 87%",
+    "audit_items": [
+      {
+        "claim": "Release corridor mapped to concrete calendar date in target year (2027-02-14 (Sunday)).",
+        "claim_type": "calendar_date",
+        "source_reference": "Python Datetime Calculation",
+        "status": "VERIFIED",
+        "critic_notes": "Confirmed: Release event dated 2027-02-14 (Sunday) matches the parsed user target year 2027."
+      },
+      {
+        "claim": "Release corridor clash events strictly scoped to target window (February (Valentine's Window)).",
+        "claim_type": "calendar_date",
+        "source_reference": "Corridor Window Filter",
+        "status": "VERIFIED",
+        "critic_notes": "Confirmed: No off-target festive clashes present in February (Valentine's Window) evaluation."
+      },
+      {
+        "claim": "Internal Consistency: Calendar Risk (5/10, Moderate Risk) corresponds to Strategy Competition ('Manageable Counter-Release').",
+        "claim_type": "strategic_inference",
+        "source_reference": "Multi-Agent Cross-Check Engine",
+        "status": "VERIFIED",
+        "critic_notes": "Integrity verified: Strategy competition classification logically reflects the calendar risk score."
+      },
+      {
+        "claim": "Valentine's Day 2027 (Feb 14) validated as a Sunday date-night window.",
+        "claim_type": "calendar_date",
+        "source_reference": "Python Datetime Calculation (2027-02-14 -> Sunday)",
+        "status": "VERIFIED",
+        "critic_notes": "Confirmed: 14 Feb 2027 falls on Sunday; evening ticket density prioritized without false Monday holiday claims."
+      },
+      {
+        "claim": "Top comparable 'Kabir Singh' (2019) gross: \u20b9380 Cr on budget \u20b960 Cr.",
+        "claim_type": "historical_comp",
+        "source_reference": "Curated Studio Benchmark Database (Not live-certified via external API)",
+        "status": "PROBABLE_INFERENCE",
+        "critic_notes": "Data represents industry trade consensus in curated local database. Unorganized single-screen territories contain \u00b15-8% reporting variance."
+      },
+      {
+        "claim": "Future 2027 Competitor Slate: Unannounced industry corridor assumption.",
+        "claim_type": "strategic_inference",
+        "source_reference": "Historical Theatrical Corridor Occupancy Index",
+        "status": "PROBABLE_INFERENCE",
+        "critic_notes": "Official competitor release slate for 2027 is currently unannounced. Competition assumptions are derived from historical corridor precedent, not confirmed competitor filings."
+      },
+      {
+        "claim": "Campaign metrics ('Illustrative Target: ~70-80M views in 24h; >9...') and corridor multipliers (1.25x, 0.8x).",
+        "claim_type": "strategic_inference",
+        "source_reference": "Studio Planning Heuristics (Not empirical guarantees)",
+        "status": "PROBABLE_INFERENCE",
+        "critic_notes": "Auditor Flag: Digital targets and calendar multipliers are illustrative studio benchmarks, not certified contractual guarantees."
+      },
+      {
+        "claim": "Distribution strategy is strictly aligned with film genres and target scale.",
+        "claim_type": "strategic_inference",
+        "source_reference": "Content Leakage Auditor",
+        "status": "VERIFIED",
+        "critic_notes": "Confirmed: No cross-genre leakage or mismatched distribution assumptions detected."
+      }
+    ],
+    "known_data_limitations": [
+      "Future 2027 competitor slate is unannounced; screen-splitting risks are modeled from historical precedent (Gadar 2 vs OMG 2, Stree 2).",
+      "Box office benchmarks are derived from curated trade tracking databases and reflect approximate historical trade consensus.",
+      "Audience word-of-mouth trajectory is heavily contingent on public reaction to the official trailer launch at T-12 days."
+    ],
+    "uncontrollable_risks": [
+      "Ministry of Defence (MoD) and CBFC regulatory clearance delays on cross-border covert operations.",
+      "Surprise announcement of a competing mega-tentpole within 60 days of the release corridor.",
+      "Severe monsoon / extreme weather disruptions in North and Central India theatrical circuits during mid-August."
+    ]
+  },
+  "metadata": {
+    "generated_at": "October 19, 2026 - 13:35:41 IST",
+    "execution_time_seconds": 0.377,
+    "execution_time_formatted": "0.38s (377ms)",
+    "agent_execution_logs": [
+      {
+        "timestamp": "2026-10-19T13:35:41.460689",
+        "agent": "Market & Comps Agent",
+        "message": "Filtered 6 comps. Spread: \u20b938 Cr to \u20b9380 Cr (Median IMDb: 6.9)",
+        "status": "completed",
+        "elapsed_seconds": 0.073,
+        "elapsed_formatted": "0.07s"
+      },
+      {
+        "timestamp": "2026-10-19T13:35:41.521505",
+        "agent": "Calendar & Clash Agent",
+        "message": "Evaluated window 'Valentine's Week 2027'. Risk score: 5/10 (Moderate Risk)",
+        "status": "completed",
+        "elapsed_seconds": 0.134,
+        "elapsed_formatted": "0.13s"
+      },
+      {
+        "timestamp": "2026-10-19T13:35:41.581806",
+        "agent": "Audience & Sentiment Agent",
+        "message": "Modeled 75% Urban Multiplex vs 25% Heartland Single-Screen. WOM: High (Music & Emotional Word-of-Mouth Dependent)",
+        "status": "completed",
+        "elapsed_seconds": 0.194,
+        "elapsed_formatted": "0.19s"
+      },
+      {
+        "timestamp": "2026-10-19T13:35:41.642254",
+        "agent": "Strategy & Distribution Agent",
+        "message": "Ranked option 1: Friday, February 12, 2027 (Opening into Valentine's Weekend Sunday Feb 14) [Manageable Counter-Release] with 8-week MAI OTT holdback",
+        "status": "completed",
+        "elapsed_seconds": 0.255,
+        "elapsed_formatted": "0.25s"
+      },
+      {
+        "timestamp": "2026-10-19T13:35:41.703482",
+        "agent": "Marketing Playbook Agent",
+        "message": "Built logline-aware campaign: Slogan 'Every Heart Has A City To Return To', 6 asset beats",
+        "status": "completed",
+        "elapsed_seconds": 0.316,
+        "elapsed_formatted": "0.32s"
+      },
+      {
+        "timestamp": "2026-10-19T13:35:41.763910",
+        "agent": "Executive Critic & Verifier",
+        "message": "Audited 8 claims with 87% credibility score. Verdict: Approved with Inferences",
+        "status": "completed",
+        "elapsed_seconds": 0.377,
+        "elapsed_formatted": "0.38s"
+      }
+    ],
+    "data_source_description": "Curated Studio Benchmark Index & Gazetted Holiday Algorithm",
+    "llm_engine": "CineStrategist Deterministic Heuristic Engine (Curated Knowledge Layer)",
+    "studio_grade": true,
+    "disclaimer": "CineStrategist is an autonomous strategic decision-support engine, not a deterministic box-office predictor. Projections represent trade heuristic modeling based on historical theatrical metrics.",
+    "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB. Theatrical box office metrics curated from industry trade archives.",
+    "data_last_checked": "October 2026"
+  }
+}

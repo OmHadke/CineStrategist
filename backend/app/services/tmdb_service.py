@@ -53,14 +53,28 @@ class TMDBService:
             jaccard_genre = len(intersection) / len(union) if union else 0.0
             genre_score = jaccard_genre * 0.35
 
-            # 2. Budget Tier Compatibility (Weight: 0.25)
             f_budget = film.get("budget_tier", "mid")
+            
+            # STRICT BUDGET SCALE ENFORCEMENT:
+            # - For "low" budget films (<= ₹35 Cr): REJECT mega and high budget films (completely different economics).
+            # - For "mid" budget films (₹35-90 Cr): REJECT mega budget films (> ₹200 Cr).
+            # - For "mega" budget films (> ₹200 Cr): REJECT low budget films (< ₹35 Cr).
+            if budget_tier == "low" and f_budget in ["mega", "high"]:
+                return None
+            if budget_tier == "mid" and f_budget == "mega":
+                return None
+            if budget_tier == "mega" and f_budget == "low":
+                return None
+
+            # 2. Budget Tier Compatibility (Weight: 0.25)
             if f_budget == budget_tier:
                 budget_score = 0.25
             elif (budget_tier == "mega" and f_budget == "high") or (budget_tier == "high" and f_budget == "mega"):
                 budget_score = 0.15
             elif (budget_tier == "high" and f_budget == "mid") or (budget_tier == "mid" and f_budget == "high"):
                 budget_score = 0.10
+            elif (budget_tier == "mid" and f_budget == "low") or (budget_tier == "low" and f_budget == "mid"):
+                budget_score = 0.15
             else:
                 budget_score = 0.0
 
@@ -69,6 +83,8 @@ class TMDBService:
             if f_star == star_tier:
                 star_score = 0.20
             elif (star_tier == "tier_1" and f_star == "tier_2") or (star_tier == "tier_2" and f_star == "tier_1"):
+                star_score = 0.10
+            elif (star_tier == "tier_2" and f_star == "tier_3") or (star_tier == "tier_3" and f_star == "tier_2"):
                 star_score = 0.10
             else:
                 star_score = 0.05
@@ -95,12 +111,13 @@ class TMDBService:
 
             return {
                 **film,
+                "original_language": film.get("original_language", film.get("language", "Hindi")),
                 "similarity_score": normalized_score,
                 "similarity_factors": reasons
             }
 
-        # Pass 1: Strict Match (>= 2 genres if user selected >= 2 genres, else >= 1)
-        required_matches = 2 if len(user_genres_set) >= 2 else 1
+        # Pass 1: Strict Match (>= 2 genres if user selected >= 2 genres, 1 if 1 genre, 0 if 0 genres provided)
+        required_matches = 2 if len(user_genres_set) >= 2 else (1 if len(user_genres_set) == 1 else 0)
         candidates = []
         seen_ids = set()
 

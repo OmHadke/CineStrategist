@@ -1,0 +1,540 @@
+{
+  "report_id": "cine-707e8e99",
+  "film_input": {
+    "title": "Gully Number 4 (Mismatch Audit)",
+    "genres": [
+      "Comedy",
+      "Social"
+    ],
+    "language": "Hindi",
+    "budget_tier": "low",
+    "star_tier": "tier_1",
+    "director": "",
+    "target_audience": "Urban, college and OTT-first cinephiles, metro middle-class",
+    "planned_window": "Q3 2027",
+    "logline": "When an unscrupulous corporate builder issues an illegal eviction notice to a historic Mumbai chawl, an eccentric group of residents stage an outrageous, camera-ready hunger strike that accidentally spirals into a nationwide viral revolution.",
+    "platforms": "theatrical",
+    "pan_india": false
+  },
+  "comps_analysis": {
+    "comparables": [
+      {
+        "id": "badhaai-ho-2018",
+        "title": "Badhaai Ho",
+        "year": 2018,
+        "genres": [
+          "Comedy",
+          "Drama"
+        ],
+        "original_language": "Hindi",
+        "director": "Amit Ravindernath Sharma",
+        "key_cast": [
+          "Ayushmann Khurrana",
+          "Neena Gupta",
+          "Gajraj Rao",
+          "Sanya Malhotra"
+        ],
+        "budget_est": "\u20b929 Cr",
+        "box_office_est": "\u20b9221 Cr",
+        "verdict": "All-Time Blockbuster",
+        "imdb_rating": 7.9,
+        "tmdb_score": 7.6,
+        "similarity_score": 0.4,
+        "similarity_factors": [
+          "Matching genres: Comedy",
+          "Matching budget scale (Low)",
+          "Same primary market (Hindi)"
+        ],
+        "source": "Curated Studio Benchmark Index (2018)",
+        "key_takeaway": "High-concept low-budget social comedies yield unprecedented ROI (>700%) when rooted in relatable Indian family discomfort and collective empathy."
+      },
+      {
+        "id": "dream-girl-2019",
+        "title": "Dream Girl",
+        "year": 2019,
+        "genres": [
+          "Comedy",
+          "Drama"
+        ],
+        "original_language": "Hindi",
+        "director": "Raaj Shaandilyaa",
+        "key_cast": [
+          "Ayushmann Khurrana",
+          "Nushrratt Bharuccha",
+          "Annu Kapoor"
+        ],
+        "budget_est": "\u20b930 Cr",
+        "box_office_est": "\u20b9200 Cr",
+        "verdict": "Super Hit",
+        "imdb_rating": 7.0,
+        "tmdb_score": 7.1,
+        "similarity_score": 0.4,
+        "similarity_factors": [
+          "Matching genres: Comedy",
+          "Matching budget scale (Low)",
+          "Same primary market (Hindi)"
+        ],
+        "source": "Curated Studio Benchmark Index (2019)",
+        "key_takeaway": "Concept comedies with strong mass-market laughs and accessible humor bridge the gap between single screens and multiplexes seamlessly."
+      },
+      {
+        "id": "bareilly-ki-barfi-2017",
+        "title": "Bareilly Ki Barfi",
+        "year": 2017,
+        "genres": [
+          "Comedy",
+          "Romance"
+        ],
+        "original_language": "Hindi",
+        "director": "Ashwiny Iyer Tiwari",
+        "key_cast": [
+          "Ayushmann Khurrana",
+          "Kriti Sanon",
+          "Rajkummar Rao"
+        ],
+        "budget_est": "\u20b920 Cr",
+        "box_office_est": "\u20b960 Cr",
+        "verdict": "Hit",
+        "imdb_rating": 7.5,
+        "tmdb_score": 7.3,
+        "similarity_score": 0.4,
+        "similarity_factors": [
+          "Matching genres: Comedy",
+          "Matching budget scale (Low)",
+          "Same primary market (Hindi)"
+        ],
+        "source": "Curated Studio Benchmark Index (2017)",
+        "key_takeaway": "Authentic local flavor and character-driven writing allow modest-budget comedies to deliver 3x box-office ROI."
+      },
+      {
+        "id": "yjhd-2013",
+        "title": "Yeh Jawaani Hai Deewani",
+        "year": 2013,
+        "genres": [
+          "Romance",
+          "Drama",
+          "Comedy"
+        ],
+        "original_language": "Hindi",
+        "director": "Ayan Mukerji",
+        "key_cast": [
+          "Ranbir Kapoor",
+          "Deepika Padukone",
+          "Aditya Roy Kapur",
+          "Kalki Koechlin"
+        ],
+        "budget_est": "\u20b940 Cr",
+        "box_office_est": "\u20b9320 Cr",
+        "verdict": "All-Time Blockbuster",
+        "imdb_rating": 7.2,
+        "tmdb_score": 7.4,
+        "similarity_score": 0.37,
+        "similarity_factors": [
+          "Matching genres: Comedy",
+          "Same primary market (Hindi)"
+        ],
+        "source": "Curated Studio Benchmark Index (2013)",
+        "key_takeaway": "Youth romantic dramedies achieve generational longevity when driven by an immortal soundtrack and relatable modern life transitions."
+      },
+      {
+        "id": "vicky-donor-2012",
+        "title": "Vicky Donor",
+        "year": 2012,
+        "genres": [
+          "Comedy",
+          "Romance"
+        ],
+        "original_language": "Hindi",
+        "director": "Shoojit Sircar",
+        "key_cast": [
+          "Ayushmann Khurrana",
+          "Yami Gautam",
+          "Annu Kapoor"
+        ],
+        "budget_est": "\u20b915 Cr",
+        "box_office_est": "\u20b966 Cr",
+        "verdict": "Super Hit",
+        "imdb_rating": 7.8,
+        "tmdb_score": 7.4,
+        "similarity_score": 0.36,
+        "similarity_factors": [
+          "Matching genres: Comedy",
+          "Matching budget scale (Low)",
+          "Same primary market (Hindi)"
+        ],
+        "source": "Curated Studio Benchmark Index (2012)",
+        "key_takeaway": "Taboo subject comedies with newcomer talent open modestly but expand exponentially through metro multiplex word-of-mouth."
+      },
+      {
+        "id": "stree-2-2024",
+        "title": "Stree 2",
+        "year": 2024,
+        "genres": [
+          "Comedy",
+          "Horror"
+        ],
+        "original_language": "Hindi",
+        "director": "Amar Kaushik",
+        "key_cast": [
+          "Shraddha Kapoor",
+          "Rajkummar Rao",
+          "Pankaj Tripathi"
+        ],
+        "budget_est": "\u20b960 Cr",
+        "box_office_est": "\u20b9860 Cr",
+        "verdict": "All-Time Blockbuster",
+        "imdb_rating": 7.3,
+        "tmdb_score": 7.4,
+        "similarity_score": 0.31,
+        "similarity_factors": [
+          "Matching genres: Comedy",
+          "Same primary market (Hindi)"
+        ],
+        "source": "Curated Studio Benchmark Index (2024)",
+        "key_takeaway": "Franchise equity combined with mid-budget efficiency yields the highest ROI in Indian cinema."
+      }
+    ],
+    "median_rating": 7.4,
+    "performance_spread": "\u20b960 Cr to \u20b9860 Cr",
+    "match_quality": "Moderate Match Quality (Selective Historical Precedents)",
+    "base_rate_summary": "Industry Base Rate: High-concept low-budget comedies enjoy asymmetric ROI (low capital risk, 5-7x upside), but over 65% fail to open theatrically without either viral humor clips or intense word-of-mouth expansion.",
+    "configuration_warnings": [
+      "CONFIGURATION ANOMALY: A Tier-1 Megastar packaged in a Low-Budget (\u20b915-30 Cr) production is atypical in Indian commercial cinema. Such setups usually reflect festival passion projects, backend profit-share deals, or unrealistic budget under-allocation."
+    ],
+    "common_success_factors": [
+      "Broad multi-demographic family appeal across both multiplexes and single screens",
+      "Strong word-of-mouth narrative hook that converts initial curiosity into repeat viewings",
+      "Memorable visual identity and accessible cultural humor"
+    ],
+    "common_pitfall_risks": [
+      "Over-estimating star pull in the absence of genuine viral word of mouth",
+      "High budget inflation without corresponding multi-territory scale"
+    ],
+    "benchmark_summary": "Benchmarked against 6 comparable titles (LOW scale). Historical range spans \u20b960 Cr to \u20b9860 Cr (Median IMDb: 7.4). Sustainable legs require broad family resonance beyond urban multiplexes."
+  },
+  "calendar_analysis": {
+    "planned_window": "Q3 2027",
+    "overall_risk_score": 6,
+    "risk_tier": "High Risk",
+    "clashes_and_events": [
+      {
+        "date": "Mid-August 2027",
+        "event_name": "Independence Day Corridor Clustering (2027)",
+        "event_type": "tentpole_clash",
+        "severity": "high",
+        "impact_multiplier": 0.75,
+        "description": "Q3 contains Independence Day (Aug 15), the highest-density competitive tentpole corridor in Q3. Unannounced A-list tentpoles will crowd mid-August."
+      },
+      {
+        "date": "July - August 2027",
+        "event_name": "Monsoon Weather Footfall Disruptions (2027)",
+        "event_type": "dry_period",
+        "severity": "medium",
+        "impact_multiplier": 0.85,
+        "description": "Heavy seasonal monsoon rainfall frequently causes transit and box office disruptions across Mumbai, Gujarat, and coastal territories."
+      }
+    ],
+    "festival_synergies": [
+      "Q3 2027: Encompasses prime Independence Day (Aug 15) and Janmashtami festive corridors."
+    ],
+    "hazard_warnings": [
+      "Q3 Corridor Caution: Mid-August is highly congested and July-August carries regional monsoon transit risks. September offers cleaner runway."
+    ],
+    "recommended_date_range": "September 2027 (Post-Monsoon & Post-Independence Day Buffer)"
+  },
+  "audience_analysis": {
+    "primary_archetypes": [
+      "College Students & Digital-First Youth (activated by street-smart satire & viral meme movements)",
+      "Discerning Urban Multiplex & OTT-First Cinephiles (appreciating sharp social commentary on corporate greed)",
+      "Metro Middle-Class & Tenement Communities (deeply empathetic to real-estate displacement)"
+    ],
+    "urban_multiplex_appeal": 75,
+    "heartland_single_screen_appeal": 25,
+    "sentiment_drivers": [
+      "David-vs-Goliath situational satire: eccentric chawl residents outsmarting powerful builders through viral ingenuity",
+      "Relatable social commentary on housing and redevelopment packaged with laugh-out-loud situational punchlines",
+      "Inspiring collective underdog solidarity that converts internet buzz into genuine emotional triumph"
+    ],
+    "fatigue_or_backlash_risks": [
+      "THE OTT-FIRST PERCEPTION TRAP: Severe danger of audiences waiting for the 8-week streaming release unless the theatrical trailer promises irresistible communal auditorium laughter.",
+      "ZERO STAR ADVANCE RISK: Absence of a bankable lead star means Day-1 ticketing will be modest; requires immediate 100%+ Saturday/Sunday word-of-mouth expansion."
+    ],
+    "positioning_hook": "Position Gully Number 4 (Mismatch Audit) as a riotous, sharp-witted grassroots satire where an eccentric chawl community turns an eviction notice into a nationwide viral revolution.",
+    "word_of_mouth_dependence": "Extreme (Sleeper/Story-Driven - Zero Initial Star Cushion)"
+  },
+  "release_strategy": {
+    "ranked_release_options": [
+      {
+        "rank": 1,
+        "proposed_date": "Primary Corridor (Q3 2027)",
+        "slot_type": "Contested Festive Corridor",
+        "screen_count_est": "3,200 - 3,800 screens across India + 600 overseas",
+        "competition_level": "Contested Runway (Unannounced Future Slate)",
+        "pros": [
+          "Capitalizes on targeted window (Q3 2027)",
+          "Early advance sales runway"
+        ],
+        "cons": [
+          "Advertising inventory cost inflation during peak festive corridors"
+        ],
+        "strategic_rationale": "Primary corridor targeted by studio. While contested runway (unannounced future slate) requires proactive marketing and vigilance against competitor announcements, the corridor footfall multiplier offers the highest opening velocity."
+      },
+      {
+        "rank": 2,
+        "proposed_date": "Post-Window Corridor (+3 Weeks Post-Q3 2027)",
+        "slot_type": "Counter-Programming Window",
+        "screen_count_est": "2,600 - 3,000 screens",
+        "competition_level": "Unknown / Unconfirmed Runway (Future Slate Unannounced)",
+        "pros": [
+          "Completely avoids initial festive tentpole collision noise and screen-sharing disputes",
+          "Lower exhibitor commission terms and cheaper broadcast marketing rates",
+          "Targeted screen allocation ensures higher seat-occupancy ratios"
+        ],
+        "cons": [
+          "Foregoes the initial holiday/thematic weekend single-day surge",
+          "Competitor slate for late corridor 2027 is unannounced, requiring ongoing exhibitor intelligence"
+        ],
+        "strategic_rationale": "Contingency escape window scheduled for Post-Window Corridor (+3 Weeks Post-Q3 2027). While future competitor slates remain unannounced, historical scheduling patterns indicate lower collision risk following the primary corridor rush."
+      }
+    ],
+    "screen_distribution_strategy": "Deploy a phased platform rollout starting across 3,200 - 3,800 screens across India + 600 overseas in metro urban hubs and university clusters. Leverage high opening-weekend occupancy (>65%) to compel national multiplex chains (PVR-INOX, Cinepolis) to expand screen allocations into Tier-2 centers in Week 2.",
+    "ott_windowing": {
+      "theatrical_holdback_weeks": 8,
+      "industry_norm_compliance": "Typical ~8-Week Multiplex Theatrical Window Norm",
+      "recommended_ott_partners": [
+        "Netflix India",
+        "Prime Video",
+        "JioCinema"
+      ],
+      "rationale": "Under prevailing Indian theatrical practice, major national multiplex chains (PVR-INOX, Cinepolis) observe a typical ~8-week (56-day) theatrical exclusivity window before SVOD premiere. Studio distributors should confirm specific contractual holdback terms directly with exhibitors during final booking agreements."
+    },
+    "pan_india_distribution_plan": "Target Hindi original release with English subtitles in South metro multiplexes (Bengaluru, Hyderabad, Chennai, Kochi). Avoid dilutive regional dubbing expenses; monetize South regional demand via post-theatrical multi-lingual OTT/satellite streaming agreements."
+  },
+  "marketing_playbook": {
+    "campaign_slogan_or_theme": "Our Chawl, Our Voice, Our Rules: Gully Number 4 (Mismatch Audit)",
+    "key_narrative_hooks": [
+      "David-vs-Goliath street comedy: eccentric chawl residents outsmarting corrupt real-estate tycoons",
+      "Viral digital rebellion: weaponizing livestreams, memes, and community unity against corporate eviction",
+      "Sharp, relatable situational humor exposing bureaucracy with heart-warming collective triumph"
+    ],
+    "timeline_beats": [
+      {
+        "phase": "T-90 to T-60 (Tease)",
+        "day_offset": "T-50 Days",
+        "asset_type": "Mock Eviction Notice & Character Vignettes",
+        "title": "The Eviction Notice & Chawl Resident Introduction",
+        "description": "Release an in-universe 'Official Notice of Demolition' digital asset that breaks the fourth wall, followed by 45-second quirky character reels showcasing each eccentric resident's hilarious reaction. Zero plot spoilers.",
+        "target_channels": [
+          "Instagram Reels",
+          "YouTube Shorts",
+          "College Campus Portals"
+        ],
+        "kpi_metric": "Illustrative Target: ~6-8M organic views; viral curiosity on real-estate satire (heuristic estimate)"
+      },
+      {
+        "phase": "T-60 to T-30 (Hype)",
+        "day_offset": "T-35 Days",
+        "asset_type": "Song 1 (Street Rap / Satirical Anthem)",
+        "title": "Gully Anthem Drop: 'Hum Nahi Hatenge' (We Won't Move)",
+        "description": "Drop Song 1: a high-energy, infectious satirical street anthem blending dholak rhythms with street rap (in the vein of Gully Boy / Bareilly Ki Barfi). Avoid conventional glossy party tracks; spotlight grassroots defiance and humor. Launch #SaveOurChawl meme contest.",
+        "target_channels": [
+          "Spotify India Indie Top 50",
+          "YouTube Music",
+          "Campus Radio",
+          "Reels Creators"
+        ],
+        "kpi_metric": "Illustrative Target: ~15-20M cross-platform streams; 30k+ creator reels (heuristic estimate)"
+      },
+      {
+        "phase": "T-30 to T-15 (Peak)",
+        "day_offset": "T-20 Days",
+        "asset_type": "Song 2 (Heartwarming Community Melody) + College Townhalls",
+        "title": "Chawl Solidarity Anthem & University Housing Debates",
+        "description": "Release Song 2: a warm, nostalgic acoustic melody celebrating childhood memories and tenement camaraderie. Cast and director host lively interactive college debates in Mumbai, Pune, Delhi, and Bangalore on urban redevelopment.",
+        "target_channels": [
+          "Campus Conclaves",
+          "Audio Streaming",
+          "Digital News Satire Portals"
+        ],
+        "kpi_metric": "Heuristic Estimate: ~25% projected bump in collegiate weekend advance ticketing intent"
+      },
+      {
+        "phase": "T-14 to T-7 (Trailer & Advance)",
+        "day_offset": "T-10 Days",
+        "asset_type": "Official Theatrical Trailer",
+        "title": "Grand Trailer Launch at Historic Mumbai Chawl",
+        "description": "Host a landmark on-ground trailer premiere directly inside an iconic heritage chawl in Central Mumbai. Unveil the 2.5-minute official cut maximizing the laugh-a-minute clash between ruthless builders and cunning residents.",
+        "target_channels": [
+          "DCP Multiplex Theaters",
+          "YouTube Live Stream",
+          "Print Culture Features"
+        ],
+        "kpi_metric": "Illustrative Target: ~25-30M views in 24h; >90% positive audience reception index (heuristic target)"
+      },
+      {
+        "phase": "T-7 to Release (Blitz)",
+        "day_offset": "T-4 Days",
+        "asset_type": "Targeted Metro Advance Ticketing & Influencer Screenings",
+        "title": "Advance Ticketing Open + Student Early-Access Previews",
+        "description": "Open advance bookings on BookMyShow and Paytm Insider with targeted student and group discounts. Organize paid Thursday evening word-of-mouth previews across 150 top metro multiplexes to ignite opening-weekend talkability.",
+        "target_channels": [
+          "BookMyShow / Paytm",
+          "Campus Hubs",
+          "Metro Transit Billboards"
+        ],
+        "kpi_metric": "Heuristic Benchmark: ~\u20b980 Lakh - \u20b91.5 Cr advance ticket pre-sales (realistic sleeper baseline)"
+      },
+      {
+        "phase": "Post-Release (Sustain)",
+        "day_offset": "Release + 3 Days",
+        "asset_type": "Audience Laughs & Climax Reaction Promo",
+        "title": "Theater Laughter Reels & Grassroots Triumph Reaction",
+        "description": "Capture raw auditorium laughter, clapping, and genuine audience smiles from packed metro multiplexes. Deploy digital clips highlighting the film's heartwarming underdog resolution to drive massive Saturday/Sunday multiplier.",
+        "target_channels": [
+          "YouTube Shorts",
+          "Instagram",
+          "Broadcast News Satire Segments"
+        ],
+        "kpi_metric": "Heuristic Benchmark: Target 100%+ Saturday and Sunday box-office jump over Friday opening (sleeper trajectory)"
+      }
+    ],
+    "music_release_cadence": "For a grassroots social comedy, glossy generic party tracks destroy authenticity. The soundtrack must be driven by punchy satirical street hip-hop, energetic dholak anthems, and an inspiring underdog solidarity chorus that fuels campus reels.",
+    "brand_tie_ins": [
+      "Urban Streetwear & Sustainable Apparel Partner (chawl pride graphic tees)",
+      "Digital Meme & News Satire Media Networks (co-branded viral explainer shorts)",
+      "College Transit / Mobility Apps (special student cinema commute credits)"
+    ],
+    "single_screen_vs_multiplex_activation": "Curated metro multiplexes receive quirky 'Save Our Chawl' interactive digital photo-booths and meme installations. Heartland single screens receive grassroots street cutouts and autorickshaw speaker broadcasts."
+  },
+  "critic_audit": {
+    "credibility_score": 85,
+    "verdict": "Approved with Inferences",
+    "total_claims_checked": 7,
+    "verified_claims_count": 4,
+    "probable_inferences_count": 3,
+    "caution_unverified_count": 0,
+    "score_formula_breakdown": "Formula: ((Verified [4] \u00d7 1.0) + (Inferences [3] \u00d7 0.65) - (Cautions [0] \u00d7 0.50)) / Total Checked [7] \u00d7 100 = 85%",
+    "audit_items": [
+      {
+        "claim": "Release corridor mapped to concrete calendar date in target year (Mid-August 2027).",
+        "claim_type": "calendar_date",
+        "source_reference": "Python Datetime Calculation",
+        "status": "VERIFIED",
+        "critic_notes": "Confirmed: Release event dated Mid-August 2027 matches the parsed user target year 2027."
+      },
+      {
+        "claim": "Release corridor clash events strictly scoped to target window (Q3 (July - September Corridor)).",
+        "claim_type": "calendar_date",
+        "source_reference": "Corridor Window Filter",
+        "status": "VERIFIED",
+        "critic_notes": "Confirmed: No off-target festive clashes present in Q3 (July - September Corridor) evaluation."
+      },
+      {
+        "claim": "Internal Consistency: Calendar Risk (6/10, High Risk) corresponds to Strategy Competition ('Contested Runway (Unannounced Future Slate)').",
+        "claim_type": "strategic_inference",
+        "source_reference": "Multi-Agent Cross-Check Engine",
+        "status": "VERIFIED",
+        "critic_notes": "Integrity verified: Strategy competition classification logically reflects the calendar risk score."
+      },
+      {
+        "claim": "Top comparable 'Badhaai Ho' (2018) gross: \u20b9221 Cr on budget \u20b929 Cr.",
+        "claim_type": "historical_comp",
+        "source_reference": "Curated Studio Benchmark Database (Not live-certified via external API)",
+        "status": "PROBABLE_INFERENCE",
+        "critic_notes": "Data represents industry trade consensus in curated local database. Unorganized single-screen territories contain \u00b15-8% reporting variance."
+      },
+      {
+        "claim": "Future 2027 Competitor Slate: Unannounced industry corridor assumption.",
+        "claim_type": "strategic_inference",
+        "source_reference": "Historical Theatrical Corridor Occupancy Index",
+        "status": "PROBABLE_INFERENCE",
+        "critic_notes": "Official competitor release slate for 2027 is currently unannounced. Competition assumptions are derived from historical corridor precedent, not confirmed competitor filings."
+      },
+      {
+        "claim": "Campaign metrics ('Illustrative Target: ~25-30M views in 24h; >9...') and corridor multipliers (0.75x, 0.85x).",
+        "claim_type": "strategic_inference",
+        "source_reference": "Studio Planning Heuristics (Not empirical guarantees)",
+        "status": "PROBABLE_INFERENCE",
+        "critic_notes": "Auditor Flag: Digital targets and calendar multipliers are illustrative studio benchmarks, not certified contractual guarantees."
+      },
+      {
+        "claim": "Distribution strategy is strictly aligned with film genres and target scale.",
+        "claim_type": "strategic_inference",
+        "source_reference": "Content Leakage Auditor",
+        "status": "VERIFIED",
+        "critic_notes": "Confirmed: No cross-genre leakage or mismatched distribution assumptions detected."
+      }
+    ],
+    "known_data_limitations": [
+      "Future 2027 competitor slate is unannounced; screen-splitting risks are modeled from historical precedent (Gadar 2 vs OMG 2, Stree 2).",
+      "Box office benchmarks are derived from curated trade tracking databases and reflect approximate historical trade consensus.",
+      "Audience word-of-mouth trajectory is heavily contingent on public reaction to the official trailer launch at T-12 days."
+    ],
+    "uncontrollable_risks": [
+      "Ministry of Defence (MoD) and CBFC regulatory clearance delays on cross-border covert operations.",
+      "Surprise announcement of a competing mega-tentpole within 60 days of the release corridor.",
+      "Severe monsoon / extreme weather disruptions in North and Central India theatrical circuits during mid-August."
+    ]
+  },
+  "metadata": {
+    "generated_at": "October 19, 2026 - 13:35:42 IST",
+    "execution_time_seconds": 0.363,
+    "execution_time_formatted": "0.36s (363ms)",
+    "agent_execution_logs": [
+      {
+        "timestamp": "2026-10-19T13:35:42.555688",
+        "agent": "Market & Comps Agent",
+        "message": "Filtered 6 comps. Spread: \u20b960 Cr to \u20b9860 Cr (Median IMDb: 7.4)",
+        "status": "completed",
+        "elapsed_seconds": 0.061,
+        "elapsed_formatted": "0.06s"
+      },
+      {
+        "timestamp": "2026-10-19T13:35:42.616141",
+        "agent": "Calendar & Clash Agent",
+        "message": "Evaluated window 'Q3 2027'. Risk score: 6/10 (High Risk)",
+        "status": "completed",
+        "elapsed_seconds": 0.121,
+        "elapsed_formatted": "0.12s"
+      },
+      {
+        "timestamp": "2026-10-19T13:35:42.676476",
+        "agent": "Audience & Sentiment Agent",
+        "message": "Modeled 75% Urban Multiplex vs 25% Heartland Single-Screen. WOM: Extreme (Sleeper/Story-Driven - Zero Initial Star Cushion)",
+        "status": "completed",
+        "elapsed_seconds": 0.181,
+        "elapsed_formatted": "0.18s"
+      },
+      {
+        "timestamp": "2026-10-19T13:35:42.736893",
+        "agent": "Strategy & Distribution Agent",
+        "message": "Ranked option 1: Primary Corridor (Q3 2027) [Contested Runway (Unannounced Future Slate)] with 8-week MAI OTT holdback",
+        "status": "completed",
+        "elapsed_seconds": 0.242,
+        "elapsed_formatted": "0.24s"
+      },
+      {
+        "timestamp": "2026-10-19T13:35:42.797313",
+        "agent": "Marketing Playbook Agent",
+        "message": "Built logline-aware campaign: Slogan 'Our Chawl, Our Voice, Our Rules: Gu', 6 asset beats",
+        "status": "completed",
+        "elapsed_seconds": 0.302,
+        "elapsed_formatted": "0.30s"
+      },
+      {
+        "timestamp": "2026-10-19T13:35:42.857695",
+        "agent": "Executive Critic & Verifier",
+        "message": "Audited 7 claims with 85% credibility score. Verdict: Approved with Inferences",
+        "status": "completed",
+        "elapsed_seconds": 0.363,
+        "elapsed_formatted": "0.36s"
+      }
+    ],
+    "data_source_description": "Curated Studio Benchmark Index & Gazetted Holiday Algorithm",
+    "llm_engine": "CineStrategist Deterministic Heuristic Engine (Curated Knowledge Layer)",
+    "studio_grade": true,
+    "disclaimer": "CineStrategist is an autonomous strategic decision-support engine, not a deterministic box-office predictor. Projections represent trade heuristic modeling based on historical theatrical metrics.",
+    "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB. Theatrical box office metrics curated from industry trade archives.",
+    "data_last_checked": "October 2026"
+  }
+}

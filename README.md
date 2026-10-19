@@ -91,47 +91,71 @@ CineStrategist includes **pre-loaded historical backtests** with real pre-releas
 
 ## 🚀 Quickstart Guide
 
-### 1. Clone & Set Up Backend
+### 1. Unified Single-Command Run (Local Development)
 
 ```bash
+# 1. Enter the backend directory
 cd backend
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+
+# 2. Run the regression test suite
+./venv/bin/pytest -q
+
+# 3. Launch the unified service (serves both React UI and REST API at port 8000)
+./venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
+Open **`http://localhost:8000`** in your browser.
 
 *(Optional)* Configure API Keys in `backend/.env`:
 ```env
 GEMINI_API_KEY=your_gemini_api_key_here
 TMDB_API_KEY=your_tmdb_api_key_here
 ```
-> **Note:** CineStrategist runs out of the box even without API keys thanks to its built-in curated benchmark database and heuristic reasoning engine!
-
-Run backend tests:
-```bash
-PYTHONPATH=. pytest
-```
-
-Start the FastAPI backend server:
-```bash
-PYTHONPATH=. uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
-```
-API Documentation will be live at: `http://localhost:8000/docs`
+> **Note:** CineStrategist runs out of the box even without external API keys thanks to its built-in curated Indian theatrical database and deterministic heuristic reasoning layer.
 
 ---
 
-### 2. Set Up & Run Frontend
+### 2. Run with Docker (Production Ready)
 
-In a separate terminal:
+```bash
+# Build the multi-stage image (Node 20 frontend + Python 3.10 backend)
+docker build -t cinestrategist .
+
+# Run the container
+docker run -p 8000:8000 cinestrategist
+```
+
+---
+
+### 3. Decoupled Development Mode (Optional)
+
+If you wish to run the React Vite frontend and FastAPI backend with live HMR reload in separate terminals:
+
+**Terminal 1 (Backend):**
+```bash
+cd backend
+./venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+**Terminal 2 (Frontend):**
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
-The Studio Web Interface will be live at: `http://localhost:5173`
+The Vite development interface will be live at `http://localhost:5173`.
 
 ---
 
-## 📄 License & TMDB Attribution
-- This product uses the TMDB API but is not endorsed or certified by TMDB.
+## 🛡️ Production & Security Safeguards
+
+- **In-Memory Rate Limiting:** Built-in `RateLimitMiddleware` restricts `/api/v1/analyze` to **30 requests/minute per IP** (supports proxy `X-Forwarded-For` headers) to protect against API quota exhaustion.
+- **Deep-Link SPA Routing:** Any deep-linked browser refresh (e.g. `/presets` or `/report/view`) resolves cleanly through Starlette SPA fallback to `index.html` (zero 404s).
+- **Secrets Isolation:** `.env` and local credentials are strictly excluded via `.gitignore` and `.dockerignore`.
+- **Decision-Support Disclaimer:** CineStrategist provides strategic decision-support heuristic modeling, not deterministic box-office fortune-telling.
+
+---
+
+## 📄 License & Attribution
+- This product uses the TMDB API but is not endorsed or certified by TMDB. Theatrical box office metrics curated from industry trade archives.
 - Released under the MIT License.
+

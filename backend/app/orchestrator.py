@@ -125,7 +125,10 @@ class Orchestrator:
                 "agent_execution_logs": logs,
                 "data_source_description": "Curated Studio Benchmark Index & Gazetted Holiday Algorithm",
                 "llm_engine": "Gemini 2.5 Flash / Enhanced Multi-Agent Engine" if llm_service.is_available() else "CineStrategist Deterministic Heuristic Engine (Curated Knowledge Layer)",
-                "studio_grade": True
+                "studio_grade": True,
+                "disclaimer": "CineStrategist is an autonomous strategic decision-support engine, not a deterministic box-office predictor. Projections represent trade heuristic modeling based on historical theatrical metrics.",
+                "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB. Theatrical box office metrics curated from industry trade archives.",
+                "data_last_checked": "October 2026"
             }
         )
 

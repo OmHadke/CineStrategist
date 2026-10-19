@@ -1,0 +1,563 @@
+{
+  "report_id": "cine-90af308c",
+  "film_input": {
+    "title": "Project Agniveer",
+    "genres": [
+      "Action",
+      "Thriller",
+      "War"
+    ],
+    "language": "Hindi",
+    "budget_tier": "mega",
+    "star_tier": "tier_1",
+    "director": "Test Director A",
+    "target_audience": "Mass heartland single-screens, patriotic family audiences, urban multiplexes",
+    "planned_window": "Independence Day 2027",
+    "logline": "During a cross-border crisis, a special forces officer must lead a covert mission behind enemy lines with a team he doesn't trust. Part war film, part spy thriller, with large-scale action set pieces and an emotional core about duty versus family.",
+    "platforms": "theatrical",
+    "pan_india": true
+  },
+  "comps_analysis": {
+    "comparables": [
+      {
+        "id": "fighter-2024",
+        "title": "Fighter",
+        "year": 2024,
+        "genres": [
+          "Action",
+          "Thriller",
+          "War"
+        ],
+        "original_language": "Hindi",
+        "director": "Siddharth Anand",
+        "key_cast": [
+          "Hrithik Roshan",
+          "Deepika Padukone",
+          "Anil Kapoor"
+        ],
+        "budget_est": "\u20b9250 Cr",
+        "box_office_est": "\u20b9355 Cr",
+        "verdict": "Average",
+        "imdb_rating": 6.1,
+        "tmdb_score": 6.3,
+        "similarity_score": 0.86,
+        "similarity_factors": [
+          "Matching genres: Action, War, Thriller",
+          "Matching budget scale (Mega)",
+          "Shared themes: War",
+          "Same primary market (Hindi)"
+        ],
+        "source": "Curated Studio Benchmark Index (2024)",
+        "key_takeaway": "CRITICAL RISK CASE: Heavy reliance on urban multiplexes leaves mega-budget military action vulnerable if heartland mass audiences disconnect from technical combat jargon."
+      },
+      {
+        "id": "tiger-zinda-hai-2017",
+        "title": "Tiger Zinda Hai",
+        "year": 2017,
+        "genres": [
+          "Action",
+          "Thriller",
+          "War"
+        ],
+        "original_language": "Hindi",
+        "director": "Ali Abbas Zafar",
+        "key_cast": [
+          "Salman Khan",
+          "Katrina Kaif",
+          "Sajjad Delafrooz"
+        ],
+        "budget_est": "\u20b9150 Cr",
+        "box_office_est": "\u20b9565 Cr",
+        "verdict": "Blockbuster",
+        "imdb_rating": 5.9,
+        "tmdb_score": 6.3,
+        "similarity_score": 0.76,
+        "similarity_factors": [
+          "Matching genres: Action, War, Thriller",
+          "Shared themes: Duty",
+          "Same primary market (Hindi)"
+        ],
+        "source": "Curated Studio Benchmark Index (2017)",
+        "key_takeaway": "Behind-enemy-lines covert rescue missions with high stakes and heroic elevation excel across both multiplexes and single screens."
+      },
+      {
+        "id": "pathaan-2023",
+        "title": "Pathaan",
+        "year": 2023,
+        "genres": [
+          "Action",
+          "Thriller",
+          "Spy"
+        ],
+        "original_language": "Hindi",
+        "director": "Siddharth Anand",
+        "key_cast": [
+          "Shah Rukh Khan",
+          "Deepika Padukone",
+          "John Abraham",
+          "Salman Khan"
+        ],
+        "budget_est": "\u20b9240 Cr",
+        "box_office_est": "\u20b91,050 Cr",
+        "verdict": "All-Time Blockbuster",
+        "imdb_rating": 5.9,
+        "tmdb_score": 6.5,
+        "similarity_score": 0.74,
+        "similarity_factors": [
+          "Matching genres: Action, Thriller",
+          "Matching budget scale (Mega)",
+          "Shared themes: Duty, Spy",
+          "Same primary market (Hindi)"
+        ],
+        "source": "Curated Studio Benchmark Index (2023)",
+        "key_takeaway": "Holiday runway plus high star equity can overcome mixed critical reviews (IMDb 5.9) if patriotic momentum and pacing are rapid."
+      },
+      {
+        "id": "jawan-2023",
+        "title": "Jawan",
+        "year": 2023,
+        "genres": [
+          "Action",
+          "Thriller",
+          "Drama"
+        ],
+        "original_language": "Hindi",
+        "director": "Atlee",
+        "key_cast": [
+          "Shah Rukh Khan",
+          "Nayanthara",
+          "Vijay Sethupathi",
+          "Deepika Padukone"
+        ],
+        "budget_est": "\u20b9300 Cr",
+        "box_office_est": "\u20b91,150 Cr",
+        "verdict": "All-Time Blockbuster",
+        "imdb_rating": 7.0,
+        "tmdb_score": 7.2,
+        "similarity_score": 0.69,
+        "similarity_factors": [
+          "Matching genres: Action, Thriller",
+          "Matching budget scale (Mega)",
+          "Shared themes: Duty",
+          "Same primary market (Hindi)"
+        ],
+        "source": "Curated Studio Benchmark Index (2023)",
+        "key_takeaway": "Mega-action with dual-generation star roles and South mass staging creates nationwide event status."
+      },
+      {
+        "id": "war-2019",
+        "title": "War",
+        "year": 2019,
+        "genres": [
+          "Action",
+          "Thriller",
+          "Spy"
+        ],
+        "original_language": "Hindi",
+        "director": "Siddharth Anand",
+        "key_cast": [
+          "Hrithik Roshan",
+          "Tiger Shroff",
+          "Vaani Kapoor"
+        ],
+        "budget_est": "\u20b9170 Cr",
+        "box_office_est": "\u20b9475 Cr",
+        "verdict": "Blockbuster",
+        "imdb_rating": 6.5,
+        "tmdb_score": 6.8,
+        "similarity_score": 0.58,
+        "similarity_factors": [
+          "Matching genres: Action, Thriller",
+          "Shared themes: Duty",
+          "Same primary market (Hindi)"
+        ],
+        "source": "Curated Studio Benchmark Index (2019)",
+        "key_takeaway": "Two-hero mentor vs protege dynamics in high-budget espionage maximize opening-day footfalls."
+      },
+      {
+        "id": "gadar-2-2023",
+        "title": "Gadar 2",
+        "year": 2023,
+        "genres": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "original_language": "Hindi",
+        "director": "Anil Sharma",
+        "key_cast": [
+          "Sunny Deol",
+          "Ameesha Patel",
+          "Utkarsh Sharma"
+        ],
+        "budget_est": "\u20b960 Cr",
+        "box_office_est": "\u20b9691 Cr",
+        "verdict": "All-Time Blockbuster",
+        "imdb_rating": 5.2,
+        "tmdb_score": 5.8,
+        "similarity_score": 0.43,
+        "similarity_factors": [
+          "Matching genres: Action, War",
+          "Shared themes: Duty",
+          "Same primary market (Hindi)"
+        ],
+        "source": "Curated Studio Benchmark Index (2023)",
+        "key_takeaway": "Independence Day provides the highest footfall multiplier in North/Central India for emotional cross-border patriotism."
+      }
+    ],
+    "median_rating": 6.0,
+    "performance_spread": "\u20b9355 Cr to \u20b91,150 Cr",
+    "match_quality": "High Confidence Studio Match",
+    "base_rate_summary": "Industry Base Rate: Mega-budget military action spectacles require a minimum \u20b9350+ Cr gross to achieve theatrical breakeven; ~40% fail to recoup heavy VFX and P&A expenditures despite explosive opening weekends.",
+    "configuration_warnings": [],
+    "common_success_factors": [
+      "Visceral emotional anchor (duty vs family / personal loss) bridging tactical military action with mass audience empathy",
+      "Multi-lingual South packaging or wide single-screen footprint in North/Central circuits",
+      "Relentless asset drop cadence establishing nationwide patriotic urgency before advance bookings open"
+    ],
+    "common_pitfall_risks": [
+      "Over-reliance on westernized military tactical jargon that isolates Tier-2/3 heartland single-screens",
+      "Treating national holidays as a guaranteed safety net without building strong pre-release emotional curiosity",
+      "Rushing into day-and-date digital marketing without physical ground presence in defense and heartland belts"
+    ],
+    "benchmark_summary": "Benchmarked against 6 comparable titles in the Action, Thriller, War space (MEGA scale). Historical range spans \u20b9355 Cr to \u20b91,150 Cr (Median IMDb: 6.0). KEY RETROSPECTIVE LESSON: While high star power and holiday timing deliver explosive openings (e.g. Pathaan: \u20b91,050 Cr on IMDb 5.9), films that prioritize complex military tech over emotional heartland resonance (e.g. Fighter: \u20b9355 Cr, 'Average') suffer in single screens. Grounding the mission in universal stakes ('duty vs family') is essential for sustained box-office legs."
+  },
+  "calendar_analysis": {
+    "planned_window": "Independence Day 2027",
+    "overall_risk_score": 6,
+    "risk_tier": "High Risk",
+    "clashes_and_events": [
+      {
+        "date": "2027-08-15 (Sunday)",
+        "event_name": "Independence Day 2027",
+        "event_type": "holiday",
+        "severity": "low",
+        "impact_multiplier": 1.35,
+        "description": "Sunday Holiday (Sunday, Aug 15, 2027). Standard 3-day weekend (Fri Aug 13 - Sun Aug 15) with NO extra weekday holiday buffer. Peak footfalls concentrated on Sunday."
+      },
+      {
+        "date": "Mid-August 2027",
+        "event_name": "Contested Independence Day Corridor (2027)",
+        "event_type": "tentpole_clash",
+        "severity": "high",
+        "impact_multiplier": 0.75,
+        "description": "Future 2027 slate is unannounced. However, Independence Day is historically one of the most crowded Hindi release corridors (e.g., 2023: Gadar 2 vs OMG 2; 2024: Stree 2 vs Khel Khel Mein / Vedaa). Expect at least 1-2 major competing tentpoles to target this date."
+      }
+    ],
+    "festival_synergies": [
+      "Independence Day (Sunday, Aug 15, 2027): Sunday Holiday (Sunday, Aug 15, 2027). Standard 3-day weekend (Fri Aug 13 - Sun Aug 15) with NO extra weekday holiday buffer. Peak footfalls concentrated on Sunday. (Multiplier: 1.35x)"
+    ],
+    "hazard_warnings": [
+      "Corridor Congestion: While 2027 competitor slates remain unannounced, historical data confirms Independence Day is rarely solo. Budget for screen capacity competition."
+    ],
+    "recommended_date_range": "Friday, August 13, 2027 to Sunday, August 15, 2027"
+  },
+  "audience_analysis": {
+    "primary_archetypes": [
+      "Mass Heartland Single-Screen Moviegoers & Defense/Armed Forces Community",
+      "Patriotic Family Theatergoers (seeking emotional national pride during holiday corridors)",
+      "Youth Tactical Action & Espionage Thriller Enthusiasts"
+    ],
+    "urban_multiplex_appeal": 50,
+    "heartland_single_screen_appeal": 50,
+    "sentiment_drivers": [
+      "Visceral special forces brotherhood and high-stakes covert tension behind enemy lines",
+      "Emotional family dilemma: the tragic friction between military duty and personal sacrifice",
+      "Grand, authentic tactical combat choreography without cartoonish physics"
+    ],
+    "fatigue_or_backlash_risks": [
+      "THE FIGHTER HAZARD: Risk of isolating heartland single-screens if combat terminology is too cold, technical, or westernized (the primary factor that held Fighter to an 'Average' verdict). Emotional family stakes must remain front-and-center.",
+      "CBFC & DEFENCE PROTOCOL SCRUTINY: Portraying cross-border covert operations requires Ministry of Defence (MoD) NOC and careful handling to prevent regulatory friction or political controversy."
+    ],
+    "positioning_hook": "Position Project Agniveer as an unyielding, high-stakes tactical covert operation that balances relentless behind-enemy-lines combat with an emotionally devastating core of duty versus family.",
+    "word_of_mouth_dependence": "Moderate to High (Word-of-Mouth Dependent)"
+  },
+  "release_strategy": {
+    "ranked_release_options": [
+      {
+        "rank": 1,
+        "proposed_date": "Friday, August 13, 2027 (Opening into Sunday Aug 15 National Holiday)",
+        "slot_type": "Standard 3-Day Weekend (Sunday Peak Holiday Climax)",
+        "screen_count_est": "4,500 - 5,200 screens across India + 1,200 overseas",
+        "competition_level": "Contested Runway (Unannounced Future Slate)",
+        "pros": [
+          "Capitalizes on Independence Day national patriotism peak on Sunday, August 15, 2027",
+          "Leverages maximum armed forces and family theatrical affinity in North and Central India",
+          "Allows deployment of full 4,500 screen footprint before late-August entries"
+        ],
+        "cons": [
+          "Aug 15 falls on Sunday, so there is NO extra Monday/Friday gazetted holiday cushion \u2014 standard 3-day window",
+          "Historically high competition corridor: unannounced 2027 competitor tentpoles are likely to announce for this date",
+          "High risk of single-screen capacity splitting if a second commercial tentpole enters the frame"
+        ],
+        "strategic_rationale": "Primary corridor targeted by studio. While contested runway (unannounced future slate) requires proactive marketing and vigilance against competitor announcements, the corridor footfall multiplier offers the highest opening velocity."
+      },
+      {
+        "rank": 2,
+        "proposed_date": "Friday, September 3, 2027",
+        "slot_type": "Post-Festive Buffer Corridor",
+        "screen_count_est": "3,800 - 4,200 screens",
+        "competition_level": "Unknown / Unconfirmed Runway (Future Slate Unannounced)",
+        "pros": [
+          "Completely avoids initial festive tentpole collision noise and screen-sharing disputes",
+          "Lower exhibitor commission terms and cheaper broadcast marketing rates",
+          "Targeted screen allocation ensures higher seat-occupancy ratios"
+        ],
+        "cons": [
+          "Foregoes the initial holiday/thematic weekend single-day surge",
+          "Competitor slate for late corridor 2027 is unannounced, requiring ongoing exhibitor intelligence"
+        ],
+        "strategic_rationale": "Contingency escape window scheduled for Friday, September 3, 2027. While future competitor slates remain unannounced, historical scheduling patterns indicate lower collision risk following the primary corridor rush."
+      }
+    ],
+    "screen_distribution_strategy": "Distribute across 4,500 - 5,200 screens across India + 1,200 overseas. Prioritize 65% single-screen footprint in North & Central heartland circuits (Delhi-UP, East Punjab, Rajasthan, CP-CI) where armed forces and patriotic themes command historically higher ticket density. Reserve 35% capacity for Tier-1 premium multiplexes (IMAX/4DX) to showcase tactical combat scale.",
+    "ott_windowing": {
+      "theatrical_holdback_weeks": 8,
+      "industry_norm_compliance": "Typical ~8-Week Multiplex Theatrical Window Norm",
+      "recommended_ott_partners": [
+        "Netflix India",
+        "Prime Video",
+        "JioCinema"
+      ],
+      "rationale": "Under prevailing Indian theatrical practice, major national multiplex chains (PVR-INOX, Cinepolis) observe a typical ~8-week (56-day) theatrical exclusivity window before SVOD premiere. Studio distributors should confirm specific contractual holdback terms directly with exhibitors during final booking agreements."
+    },
+    "pan_india_distribution_plan": "Deploy multi-lingual day-and-date dubbed releases in Telugu and Tamil. Partner with a prominent South distributor (e.g. Mythri Movie Makers or Asian Cinemas) for Telugu states (Nizam/Andhra) where high-octane combat action set-pieces resonate strongly."
+  },
+  "marketing_playbook": {
+    "campaign_slogan_or_theme": "Behind Enemy Lines, Duty Is The Only Shield",
+    "key_narrative_hooks": [
+      "Unsanctioned covert warfare: high-stakes survival behind enemy lines with zero room for failure",
+      "The heartbreaking emotional friction: choosing between the uniform and the family you left behind",
+      "Grand, authentic military tactical set-pieces engineered for IMAX and single-screen auditoriums alike"
+    ],
+    "timeline_beats": [
+      {
+        "phase": "T-90 to T-60 (Tease)",
+        "day_offset": "T-75 Days",
+        "asset_type": "Classified Mission Brief & First Look",
+        "title": "Project Agniveer: Operational File & Tactical Character Reveal",
+        "description": "Release an ominous, classified intelligence dossier motion poster revealing the lead operative in tactical gear, accompanied by intercepted radio comms and an intense metallic battle score. No plot spoilers; establish mission urgency.",
+        "target_channels": [
+          "YouTube",
+          "Instagram",
+          "X / Twitter",
+          "National Multiplex Pre-Rolls"
+        ],
+        "kpi_metric": "Illustrative Target: ~25-30M organic digital impressions (heuristic pacing benchmark)"
+      },
+      {
+        "phase": "T-60 to T-30 (Hype)",
+        "day_offset": "T-45 Days",
+        "asset_type": "Combat Teaser + Patriotic Anthem",
+        "title": "Mission Teaser Drop & Song 1 (Battle / Brotherhood Anthem)",
+        "description": "Drop a 75-second high-octane combat teaser showcasing raw tactical firefights, followed 4 days later by Song 1: a roaring, goosebump-inducing patriotic battle anthem (in the tradition of 'Teri Mitti' / 'Aarambh Hai Prachand'). Avoid forced glamorous party tracks; focus on brotherhood and national duty.",
+        "target_channels": [
+          "Spotify India",
+          "YouTube Music",
+          "Radio Mirchi / Red FM",
+          "Reels Tactical Trend Collabs"
+        ],
+        "kpi_metric": "Illustrative Target: ~50-60M cross-platform views; Top 10 Spotify India Viral entry (heuristic pacing)"
+      },
+      {
+        "phase": "T-30 to T-15 (Peak)",
+        "day_offset": "T-25 Days",
+        "asset_type": "Duty vs Family Emotional Featurette & Track 2",
+        "title": "The Heart of the Mission: Emotional Motif & Co-Branded Launch",
+        "description": "Release Song 2: a soulful, poignant melody spotlighting the family dilemma\u2014letters sent home, promises to return, and the personal agony of soldiers. Launch nationwide co-branded initiative with Armed Forces veteran welfare foundations.",
+        "target_channels": [
+          "National Television Prime Time",
+          "Outdoor Metro Billboards",
+          "Streaming Platforms"
+        ],
+        "kpi_metric": "Heuristic Estimate: ~15-20% projected lift in female/family ticketing intent (studio heuristic analog)"
+      },
+      {
+        "phase": "T-14 to T-7 (Trailer & Advance)",
+        "day_offset": "T-12 Days",
+        "asset_type": "Theatrical Trailer Launch at Military Landmark",
+        "title": "Grand Trailer Launch Event (War Memorial / Air Base)",
+        "description": "Host a massive on-ground trailer launch in Delhi/Chandigarh attended by defense veterans, lead cast, and director. Unveil the 3-minute theatrical cut balancing tactical gunplay, covert betrayal tension, and national pride.",
+        "target_channels": [
+          "5,000+ Theatrical DCP Screens",
+          "YouTube Global Live Stream",
+          "Front Page Print Coverage"
+        ],
+        "kpi_metric": "Illustrative Debut Target: ~80-100M views in 24h; >85% positive reception index (heuristic target)"
+      },
+      {
+        "phase": "T-7 to Release (Blitz)",
+        "day_offset": "T-6 Days",
+        "asset_type": "Advance Booking Blitz & Heartland City Tours",
+        "title": "Advance Ticketing Open + Punjab/UP/Delhi Armed Forces Roadshow",
+        "description": "Open advance ticketing nationwide on BookMyShow and Paytm Insider. Conduct targeted high-energy city tours across major military recruit belts (Chandigarh, Jaipur, Lucknow, Dehradun). Organize early-access tribute screenings for soldiers' families.",
+        "target_channels": [
+          "BookMyShow / Paytm",
+          "Mall Atriums",
+          "Armed Forces Cantonment Screenings",
+          "News Conclaves"
+        ],
+        "kpi_metric": "Heuristic Benchmark: ~\u20b915-20Cr pre-sales target before opening day (indicative pacing benchmark)"
+      },
+      {
+        "phase": "Post-Release (Sustain)",
+        "day_offset": "Release + 3 Days",
+        "asset_type": "Duty & Sacrifice Emotional Reaction Cut",
+        "title": "Audience Climax Reaction Promo & Final Tribute Cut",
+        "description": "Capture raw emotional audience tears and standing ovations from the duty-vs-family climax. Deploy digital clips celebrating real-life martyrs and operatives to turn holiday momentum into sustained 3-week legs.",
+        "target_channels": [
+          "YouTube Shorts",
+          "Instagram",
+          "Broadcast News Features"
+        ],
+        "kpi_metric": "Heuristic Benchmark: Maintain sub-35% Monday drop-off across major circuits (indicative benchmark)"
+      }
+    ],
+    "music_release_cadence": "For a serious tactical war thriller, conventional romantic duets or club party songs break narrative tension and alienate audiences. The album must follow a disciplined 2-pillar architecture: (1) A thumping, adrenalized patriotic/brotherhood anthem at T-45 for pre-workout and youth motivation, and (2) A deeply emotional family tribute ballad at T-25 that articulates the heartbreaking cost of duty over family.",
+    "brand_tie_ins": [
+      "Automotive / Heavy Terrain Mobility Partner (exclusive co-branded spot featuring tactical transport)",
+      "Outdoor Tactical & Apparel Brand (official mission utility gear line)",
+      "Fintech / Ticket Platform Armed Forces Day Tribute (special discounted access for service families)",
+      "Armed Forces Relief & Welfare Fund Charity Collaboration (percentage of day-1 proceeds dedicated to martyr support)"
+    ],
+    "single_screen_vs_multiplex_activation": "Heartland single-screen circuits (Punjab, Haryana, Rajasthan, UP) receive high-impact painted cutouts, local radio battle cries, and auto-rickshaw speaker promotions. Metro multiplexes receive immersive 3D tactical command center photo installations and Dolby Atmos sound previews."
+  },
+  "critic_audit": {
+    "credibility_score": 87,
+    "verdict": "Approved with Inferences",
+    "total_claims_checked": 8,
+    "verified_claims_count": 5,
+    "probable_inferences_count": 3,
+    "caution_unverified_count": 0,
+    "score_formula_breakdown": "Formula: ((Verified [5] \u00d7 1.0) + (Inferences [3] \u00d7 0.65) - (Cautions [0] \u00d7 0.50)) / Total Checked [8] \u00d7 100 = 87%",
+    "audit_items": [
+      {
+        "claim": "Release corridor mapped to concrete calendar date in target year (2027-08-15 (Sunday)).",
+        "claim_type": "calendar_date",
+        "source_reference": "Python Datetime Calculation",
+        "status": "VERIFIED",
+        "critic_notes": "Confirmed: Release event dated 2027-08-15 (Sunday) matches the parsed user target year 2027."
+      },
+      {
+        "claim": "Release corridor clash events strictly scoped to target window (August (Independence Day Corridor)).",
+        "claim_type": "calendar_date",
+        "source_reference": "Corridor Window Filter",
+        "status": "VERIFIED",
+        "critic_notes": "Confirmed: No off-target festive clashes present in August (Independence Day Corridor) evaluation."
+      },
+      {
+        "claim": "Internal Consistency: Calendar Risk (6/10, High Risk) corresponds to Strategy Competition ('Contested Runway (Unannounced Future Slate)').",
+        "claim_type": "strategic_inference",
+        "source_reference": "Multi-Agent Cross-Check Engine",
+        "status": "VERIFIED",
+        "critic_notes": "Integrity verified: Strategy competition classification logically reflects the calendar risk score."
+      },
+      {
+        "claim": "August 15, 2027 is accurately validated as a Sunday (no extra weekday holiday cushion).",
+        "claim_type": "calendar_date",
+        "source_reference": "Python Datetime Calculation (2027-08-15 -> Sunday)",
+        "status": "VERIFIED",
+        "critic_notes": "Confirmed: Aug 15 falls on Sunday. Strategy accurately identifies standard 3-day weekend with peak Sunday footfall rather than false extended cushion."
+      },
+      {
+        "claim": "Top comparable 'Fighter' (2024) gross: \u20b9355 Cr on budget \u20b9250 Cr.",
+        "claim_type": "historical_comp",
+        "source_reference": "Curated Studio Benchmark Database (Not live-certified via external API)",
+        "status": "PROBABLE_INFERENCE",
+        "critic_notes": "Data represents industry trade consensus in curated local database. Unorganized single-screen territories contain \u00b15-8% reporting variance."
+      },
+      {
+        "claim": "Future 2027 Competitor Slate: Unannounced industry corridor assumption.",
+        "claim_type": "strategic_inference",
+        "source_reference": "Historical Theatrical Corridor Occupancy Index",
+        "status": "PROBABLE_INFERENCE",
+        "critic_notes": "Official competitor release slate for 2027 is currently unannounced. Competition assumptions are derived from historical corridor precedent, not confirmed competitor filings."
+      },
+      {
+        "claim": "Campaign metrics ('Illustrative Debut Target: ~80-100M views in ...') and corridor multipliers (1.35x, 0.75x).",
+        "claim_type": "strategic_inference",
+        "source_reference": "Studio Planning Heuristics (Not empirical guarantees)",
+        "status": "PROBABLE_INFERENCE",
+        "critic_notes": "Auditor Flag: Digital targets and calendar multipliers are illustrative studio benchmarks, not certified contractual guarantees."
+      },
+      {
+        "claim": "Distribution strategy is strictly aligned with film genres and target scale.",
+        "claim_type": "strategic_inference",
+        "source_reference": "Content Leakage Auditor",
+        "status": "VERIFIED",
+        "critic_notes": "Confirmed: No cross-genre leakage or mismatched distribution assumptions detected."
+      }
+    ],
+    "known_data_limitations": [
+      "Future 2027 competitor slate is unannounced; screen-splitting risks are modeled from historical precedent (Gadar 2 vs OMG 2, Stree 2).",
+      "Box office benchmarks are derived from curated trade tracking databases and reflect approximate historical trade consensus.",
+      "Audience word-of-mouth trajectory is heavily contingent on public reaction to the official trailer launch at T-12 days."
+    ],
+    "uncontrollable_risks": [
+      "Ministry of Defence (MoD) and CBFC regulatory clearance delays on cross-border covert operations.",
+      "Surprise announcement of a competing mega-tentpole within 60 days of the release corridor.",
+      "Severe monsoon / extreme weather disruptions in North and Central India theatrical circuits during mid-August."
+    ]
+  },
+  "metadata": {
+    "generated_at": "October 19, 2026 - 13:35:42 IST",
+    "execution_time_seconds": 0.363,
+    "execution_time_formatted": "0.36s (363ms)",
+    "agent_execution_logs": [
+      {
+        "timestamp": "2026-10-19T13:35:41.826964",
+        "agent": "Market & Comps Agent",
+        "message": "Filtered 6 comps. Spread: \u20b9355 Cr to \u20b91,150 Cr (Median IMDb: 6.0)",
+        "status": "completed",
+        "elapsed_seconds": 0.061,
+        "elapsed_formatted": "0.06s"
+      },
+      {
+        "timestamp": "2026-10-19T13:35:41.887329",
+        "agent": "Calendar & Clash Agent",
+        "message": "Evaluated window 'Independence Day 2027'. Risk score: 6/10 (High Risk)",
+        "status": "completed",
+        "elapsed_seconds": 0.121,
+        "elapsed_formatted": "0.12s"
+      },
+      {
+        "timestamp": "2026-10-19T13:35:41.947656",
+        "agent": "Audience & Sentiment Agent",
+        "message": "Modeled 50% Urban Multiplex vs 50% Heartland Single-Screen. WOM: Moderate to High (Word-of-Mouth Dependent)",
+        "status": "completed",
+        "elapsed_seconds": 0.182,
+        "elapsed_formatted": "0.18s"
+      },
+      {
+        "timestamp": "2026-10-19T13:35:42.008135",
+        "agent": "Strategy & Distribution Agent",
+        "message": "Ranked option 1: Friday, August 13, 2027 (Opening into Sunday Aug 15 National Holiday) [Contested Runway (Unannounced Future Slate)] with 8-week MAI OTT holdback",
+        "status": "completed",
+        "elapsed_seconds": 0.242,
+        "elapsed_formatted": "0.24s"
+      },
+      {
+        "timestamp": "2026-10-19T13:35:42.068458",
+        "agent": "Marketing Playbook Agent",
+        "message": "Built logline-aware campaign: Slogan 'Behind Enemy Lines, Duty Is The Onl', 6 asset beats",
+        "status": "completed",
+        "elapsed_seconds": 0.302,
+        "elapsed_formatted": "0.30s"
+      },
+      {
+        "timestamp": "2026-10-19T13:35:42.128836",
+        "agent": "Executive Critic & Verifier",
+        "message": "Audited 8 claims with 87% credibility score. Verdict: Approved with Inferences",
+        "status": "completed",
+        "elapsed_seconds": 0.363,
+        "elapsed_formatted": "0.36s"
+      }
+    ],
+    "data_source_description": "Curated Studio Benchmark Index & Gazetted Holiday Algorithm",
+    "llm_engine": "CineStrategist Deterministic Heuristic Engine (Curated Knowledge Layer)",
+    "studio_grade": true,
+    "disclaimer": "CineStrategist is an autonomous strategic decision-support engine, not a deterministic box-office predictor. Projections represent trade heuristic modeling based on historical theatrical metrics.",
+    "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB. Theatrical box office metrics curated from industry trade archives.",
+    "data_last_checked": "October 2026"
+  }
+}

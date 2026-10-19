@@ -281,12 +281,43 @@ export default function ReportDashboard({ report, onReset }) {
                   Benchmarked using historical Indian theatrical records &amp; verified TMDB statistics
                 </p>
               </div>
-              <div className="flex items-center space-x-3 text-xs">
+              <div className="flex flex-wrap items-center gap-2 text-xs">
+                {comps_analysis.match_quality && (
+                  <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                    comps_analysis.match_quality.includes('High')
+                      ? 'bg-emerald-950/70 border border-emerald-700/60 text-emerald-300'
+                      : comps_analysis.match_quality.includes('Moderate')
+                      ? 'bg-amber-950/70 border border-amber-700/60 text-amber-300'
+                      : 'bg-red-950/70 border border-red-700/60 text-red-300'
+                  }`}>
+                    {comps_analysis.match_quality}
+                  </span>
+                )}
                 <span className="px-3 py-1 rounded-full bg-studio-900 border border-studio-700 text-slate-300">
                   Median Rating: <strong className="text-white">{comps_analysis.median_rating} / 10</strong>
                 </span>
               </div>
             </div>
+
+            {/* Configuration Warnings Alert */}
+            {comps_analysis.configuration_warnings && comps_analysis.configuration_warnings.length > 0 && (
+              <div className="mb-6 p-4 rounded-xl bg-amber-950/30 border border-amber-700/70 text-amber-200 text-xs space-y-2">
+                {comps_analysis.configuration_warnings.map((warn, idx) => (
+                  <div key={idx} className="flex items-start space-x-2">
+                    <span className="font-bold text-amber-400 shrink-0">⚠️ AUDITOR WARNING:</span>
+                    <span className="leading-relaxed">{warn}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Genre Base Rate Context Callout */}
+            {comps_analysis.base_rate_summary && (
+              <div className="mb-6 p-3.5 rounded-lg bg-studio-900/90 border border-studio-700 text-slate-300 text-xs leading-relaxed">
+                <span className="font-semibold text-studio-gold">Studio Base Rate Precedent: </span>
+                {comps_analysis.base_rate_summary}
+              </div>
+            )}
 
             {/* Visual Recharts Bar Graph */}
             <div className="h-64 w-full mb-8 no-print">
@@ -326,7 +357,12 @@ export default function ReportDashboard({ report, onReset }) {
                   {comps_analysis.comparables.map((comp) => (
                     <tr key={comp.id} className="hover:bg-studio-700/30 transition-colors">
                       <td className="py-3 px-3 font-semibold text-white whitespace-nowrap">
-                        {comp.title} <span className="text-slate-400 font-normal">({comp.year})</span>
+                        <div>{comp.title} <span className="text-slate-400 font-normal">({comp.year})</span></div>
+                        {comp.original_language && (
+                          <div className="text-[10px] text-purple-300 font-mono mt-0.5">
+                            {comp.original_language}
+                          </div>
+                        )}
                       </td>
                       <td className="py-3 px-3 text-slate-300">
                         {comp.genres.join(', ')}
